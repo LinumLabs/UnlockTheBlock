@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+      "tagid": "6473856473826",
+      "breed": "Nguni",
+      "age": "4 months",
+      "price": "0.68",
+      "picture":"images/smallcow.png"
+    },
+    {
+        "id": 1,
+      "tagid": "6956425463821",
+      "breed": "Nguni",
+      "age": "9 months",
+      "price": "0.91",
+      "picture":"images/middlecow.png"
+    },
+    {
+        "id": 2,
+      "tagid": "7463826492634",
+      "breed": "Nguni",
+      "age": "12 months",
+      "price": "1.21",
+      "picture":"images/cowbeef.png"
+    }
+   ]

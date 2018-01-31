@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Proof of Steak</title>
+
+    <!-- Bootstrap -->
+    <link href="TemplateBootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="TemplateBootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="TemplateBootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+    <!-- Custom styles for this template -->
+    <link href="TemplateBootstrap/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="page-top">
+
+      <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+          <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">Marketplace</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Home Page</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      <div class="container" style="margin-top:130px">
+        <div class=row>
+            <div class="card" style="width:20rem; margin-right:20px;  margin: 0 auto; margin-bottom:10px;">
+                <br>
+                <img class="card-img-top" src="images/smallcow.png" alt="Card image cap">
+                <div class="card-body">
+                  <br>
+                  <br>
+                  
+                  <h5 class="card-title">Small</h5>
+                  <p class="card-text">Age: 4 months</p>
+                  <p class="card-text">Price: 0.68 Ether</p>
+                  <p class="card-text">Return: 10-15%</p>
+                  <button class="btn btn-primary btn-invest" type="button" data-id="0">Invest</button>
+                  <!-- <a href="#" class="btn btn-primary">Invest</a> -->
+                </div>
+              </div>
+              <div class="card" style="width: 20rem;  margin-right:20px;  margin: 0 auto; margin-bottom:10px;">
+                  <br>
+                  <img class="card-img-top" src="images/middlecow.png" alt="Card image cap" style="margin-top:10px;">
+                  <div class="card-body">
+                      <br>
+                      <br>
+                    <h5 class="card-title">Medium</h5>
+                    <p class="card-text">Age: 9 months</p>
+                    <p class="card-text"> Price: 0.91 Ether</p>
+                    <p class="card-text">Return: 7-9%</p>
+                    <button class="btn btn-primary btn-invest" type="button" data-id="0">Invest</button>
+                  </div>
+                </div>
+                <div class="card" style="width: 20rem;  margin: 0 auto; margin-bottom:10px;">
+                    <img class="card-img-top" src="images/cowbeef.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Large</h5>
+                      <p class="card-text">Age: 12 months</p>
+                      <p class="card-text">Price: 1.21 Ether</p>
+                      <p class="card-text">Return: 4-6%</p>
+                      <button class="btn btn-primary btn-invest" type="button" data-id="0">Invest</button>
+                    </div>
+                  </div>
+
+        </div>
+      </div>
+      
+      <div id="CowRow" class="row">
+          <!-- Load Cows Here -->
+        </div>
+      </div>
+  
+      <div id="cowTemplate" style="display: none;">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="panel panel-default panel-pet">
+            <div class="panel-heading">
+              <h3 class="panel-title">Scrappy</h3>
+            </div>
+            <div class="panel-body">
+              <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="TemplateBootstrap/img/cow.png" data-holder-rendered="true">
+              <br/><br/>
+              <strong>TagID</strong>: <span class="cow-tag">TagID</span><br/>
+              <strong>Breed</strong>: <span class="cow-breed">Golden Retriever</span><br/>
+              <strong>Age</strong>: <span class="cow-age">3</span><br/>
+              <strong>Price</strong>: <span class="cow-price">Warren, MI</span><br/><br/>
+              <button class="btn btn-default btn-invest" type="button" data-id="0">Invest</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Bootstrap core JavaScript
+    <script src="TemplateBootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="TemplateBootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+      Plugin JavaScript
+     <script src="TemplateBootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+     <script src="TemplateBootstrap/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+ 
+     <Contact Form JavaScript
+     <script src="TemplateBootstrap/js/jqBootstrapValidation.js"></script>
+     <script src="TemplateBootstrap/js/contact_me.js"></script>
+ 
+     <!Custom scripts for this template 
+     <script src="TemplateBootstrap/js/freelancer.min.js"></script> -->
+
+  </body>
+</html>

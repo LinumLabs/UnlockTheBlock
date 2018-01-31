@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Farmer Submission</title>
+
+    <!-- Bootstrap -->
+    <link href="TemplateBootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="TemplateBootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="TemplateBootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+    <!-- Custom styles for this template -->
+    <link href="TemplateBootstrap/css/freelancer.min.css" rel="stylesheet">
+
+    
+  </head>
+  <body id="page-top">
+
+      <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+          <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">Yuna</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Home Page</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      <section id="cowinput">
+            <div class="container" style="margin-top:110px">
+              <h2 class="text-center text-uppercase text-secondary mb-0">Register a Cow</h2>
+              <hr class="star-dark mb-5">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                  <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                  <form name="cowEntry" id="cowForm" novalidate="novalidate" onsubmit="WriteToFile(this)">
+                    <div class="control-group">                       
+                      <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <h4 style="color:#2c3e50">Tag Identification</h4>
+                        <label>Tag Identification</label>
+                        <input class="form-control" id="tagid" type="text" placeholder="e.g. 536 368 286 2783" required="required" data-validation-required-message="10 digits">
+                        <p class="help-block text-danger"></p>
+                      </div>
+                      <br>
+                    </div>
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <h4 style="color:#2c3e50">Cow Breed</h4>
+                        <label>Breed</label>
+                        <input class="form-control" id="breed" type="text" placeholder="e.g German Vila" required="required" data-validation-required-message="E.G Kun Breed">
+                        <p class="help-block text-danger"></p>
+                      </div>
+                      <br>
+                    </div>
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <h4 style="color:#2c3e50">Age of Cow</h4>
+                        <label>Age</label>
+                        <input class="form-control" id="age" type="text" placeholder="e.g. 6 months" required="required" data-validation-required-message="E.G 6 months">
+                        <p class="help-block text-danger"></p>
+                      </div>
+                      <br>
+                    </div>
+                    <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <h4 style="color:#2c3e50">Price of Cow</h4>
+                              <label>Price</label>
+                              <input class="form-control" id="price" type="text" placeholder="R6 000" required="required" data-validation-required-message="E.G R6 000">
+                              <p class="help-block text-danger"></p>
+                            </div>
+                          </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script> 
+
+    <!-- Bootstrap core JavaScript
+    <script src="TemplateBootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="TemplateBootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+     <!-- Plugin JavaScript
+     <script src="TemplateBootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+     <script src="TemplateBootstrap/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+ 
+     <!-- Contact Form JavaScript
+     <script src="TemplateBootstrap/js/jqBootstrapValidation.js"></script>
+     <script src="TemplateBootstrap/js/contact_me.js"></script> -->
+ 
+     <!-- Custom scripts for this template -->
+      <!-- <script src="TemplateBootstrap/js/freelancer.min.js"></script> -->
+
+  </body>
+</html>
