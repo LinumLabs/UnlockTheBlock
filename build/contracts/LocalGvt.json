@@ -1,0 +1,615 @@
+{
+  "contractName": "LocalGvt",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "registerRefugee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "updateRefugee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_localGvtAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setLocalGvtAddress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bank",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "deregisterRefugee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "localGvt",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_bankAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setBankAddress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6103fb8061001e6000396000f300606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e31722a14610088578063319e46df1461009d57806361e658f4146100b257806376cdb03b146100eb578063772c6fc714610140578063f91dfe4514610155578063fc3c0eee146101aa575b600080fd5b341561009357600080fd5b61009b6101e3565b005b34156100a857600080fd5b6100b0610241565b005b34156100bd57600080fd5b6100e9600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061029f565b005b34156100f657600080fd5b6100fe6102e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561014b57600080fd5b610153610308565b005b341561016057600080fd5b610168610366565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101b557600080fd5b6101e1600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061038c565b005b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023f57600080fd5b565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561029d57600080fd5b565b80600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561036457600080fd5b565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a72305820eef761fd5c2c0cab7456c1bf811d98dccd3222a8b9932bc400288eabe02989bb0029",
+  "deployedBytecode": "0x606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e31722a14610088578063319e46df1461009d57806361e658f4146100b257806376cdb03b146100eb578063772c6fc714610140578063f91dfe4514610155578063fc3c0eee146101aa575b600080fd5b341561009357600080fd5b61009b6101e3565b005b34156100a857600080fd5b6100b0610241565b005b34156100bd57600080fd5b6100e9600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061029f565b005b34156100f657600080fd5b6100fe6102e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561014b57600080fd5b610153610308565b005b341561016057600080fd5b610168610366565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101b557600080fd5b6101e1600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061038c565b005b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023f57600080fd5b565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561029d57600080fd5b565b80600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561036457600080fd5b565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a72305820eef761fd5c2c0cab7456c1bf811d98dccd3222a8b9932bc400288eabe02989bb0029",
+  "sourceMap": "68:790:1:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "68:790:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;553:97;;;;;;;;;;;;;;759:96;;;;;;;;;;;;;;192:99:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;54:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;656:97:1;;;;;;;;;;;;;;77:23:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;105:83;;;;;;;;;;;;;;;;;;;;;;;;;;;;553:97:1;723:8:0;;;;;;;;;;;709:22;;:10;:22;;;701:31;;;;;;;;553:97:1:o;759:96::-;723:8:0;;;;;;;;;;;709:22;;:10;:22;;;701:31;;;;;;;;759:96:1:o;192:99:0:-;270:16;259:8;;:27;;;;;;;;;;;;;;;;;;192:99;:::o;54:19::-;;;;;;;;;;;;;:::o;656:97:1:-;723:8:0;;;;;;;;;;;709:22;;:10;:22;;;701:31;;;;;;;;656:97:1:o;77:23:0:-;;;;;;;;;;;;;:::o;105:83::-;171:12;164:4;;:19;;;;;;;;;;;;;;;;;;105:83;:::o",
+  "source": "pragma solidity ^0.4.18;\nimport \"../contracts/CustomOwnables.sol\";\n\ncontract LocalGvt is CustomOwnables {\n\n    //local government adds, removes, updates refugee info\n    //registered refugees are stored in a database with an ID mapping to refugee details\n    //refugee details are stored in a struct\n\n    //map refugees id/contract id to Refugee struct\n    mapping(uint => Refugee) refugees;\n\n    struct Refugee {\n        uint id;\n        uint tokenBalance;\n        string dob;\n        string name;\n        string citizenship; \n        //etc\n    }\n\n    function registerRefugee () external view onlyLocalGvt {\n        //adds to refugees mapping\n    }\n\n    function deregisterRefugee () external view  onlyLocalGvt {\n        //deletes from refugees\n    }\n\n    function updateRefugee () external view onlyLocalGvt {\n        //updates specified refugee\n    }\n\n}",
+  "sourcePath": "/home/fadzi/hackathon/contracts/LocalGvt.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/fadzi/hackathon/contracts/LocalGvt.sol",
+      "exportedSymbols": {
+        "LocalGvt": [
+          87
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 50,
+        "name": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 49,
+          "absolutePath": "/home/fadzi/hackathon/contracts/CustomOwnables.sol",
+          "file": "../contracts/CustomOwnables.sol",
+          "scope": 88,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 51,
+        "name": "ImportDirective",
+        "src": "25:41:1"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            48
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            87,
+            48
+          ],
+          "name": "LocalGvt",
+          "scope": 88
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CustomOwnables",
+                  "referencedDeclaration": 48,
+                  "type": "contract CustomOwnables"
+                },
+                "id": 52,
+                "name": "UserDefinedTypeName",
+                "src": "89:14:1"
+              }
+            ],
+            "id": 53,
+            "name": "InheritanceSpecifier",
+            "src": "89:14:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "refugees",
+              "scope": 87,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(uint256 => struct LocalGvt.Refugee storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(uint256 => struct LocalGvt.Refugee storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 54,
+                    "name": "ElementaryTypeName",
+                    "src": "365:4:1"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Refugee",
+                      "referencedDeclaration": 68,
+                      "type": "struct LocalGvt.Refugee storage pointer"
+                    },
+                    "id": 55,
+                    "name": "UserDefinedTypeName",
+                    "src": "373:7:1"
+                  }
+                ],
+                "id": 56,
+                "name": "Mapping",
+                "src": "357:24:1"
+              }
+            ],
+            "id": 57,
+            "name": "VariableDeclaration",
+            "src": "357:33:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "LocalGvt.Refugee",
+              "name": "Refugee",
+              "scope": 87,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "id",
+                  "scope": 68,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 58,
+                    "name": "ElementaryTypeName",
+                    "src": "422:4:1"
+                  }
+                ],
+                "id": 59,
+                "name": "VariableDeclaration",
+                "src": "422:7:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "tokenBalance",
+                  "scope": 68,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 60,
+                    "name": "ElementaryTypeName",
+                    "src": "439:4:1"
+                  }
+                ],
+                "id": 61,
+                "name": "VariableDeclaration",
+                "src": "439:17:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "dob",
+                  "scope": 68,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 62,
+                    "name": "ElementaryTypeName",
+                    "src": "466:6:1"
+                  }
+                ],
+                "id": 63,
+                "name": "VariableDeclaration",
+                "src": "466:10:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "name",
+                  "scope": 68,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 64,
+                    "name": "ElementaryTypeName",
+                    "src": "486:6:1"
+                  }
+                ],
+                "id": 65,
+                "name": "VariableDeclaration",
+                "src": "486:11:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "citizenship",
+                  "scope": 68,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 66,
+                    "name": "ElementaryTypeName",
+                    "src": "507:6:1"
+                  }
+                ],
+                "id": 67,
+                "name": "VariableDeclaration",
+                "src": "507:18:1"
+              }
+            ],
+            "id": 68,
+            "name": "StructDefinition",
+            "src": "397:150:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "name": "registerRefugee",
+              "payable": false,
+              "scope": 87,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 69,
+                "name": "ParameterList",
+                "src": "578:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 72,
+                "name": "ParameterList",
+                "src": "608:0:1"
+              },
+              {
+                "attributes": {
+                  "arguments": [
+                    null
+                  ]
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 47,
+                      "type": "modifier ()",
+                      "value": "onlyLocalGvt"
+                    },
+                    "id": 70,
+                    "name": "Identifier",
+                    "src": "595:12:1"
+                  }
+                ],
+                "id": 71,
+                "name": "ModifierInvocation",
+                "src": "595:12:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 73,
+                "name": "Block",
+                "src": "608:42:1"
+              }
+            ],
+            "id": 74,
+            "name": "FunctionDefinition",
+            "src": "553:97:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "name": "deregisterRefugee",
+              "payable": false,
+              "scope": 87,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 75,
+                "name": "ParameterList",
+                "src": "683:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 78,
+                "name": "ParameterList",
+                "src": "714:0:1"
+              },
+              {
+                "attributes": {
+                  "arguments": [
+                    null
+                  ]
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 47,
+                      "type": "modifier ()",
+                      "value": "onlyLocalGvt"
+                    },
+                    "id": 76,
+                    "name": "Identifier",
+                    "src": "701:12:1"
+                  }
+                ],
+                "id": 77,
+                "name": "ModifierInvocation",
+                "src": "701:12:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 79,
+                "name": "Block",
+                "src": "714:39:1"
+              }
+            ],
+            "id": 80,
+            "name": "FunctionDefinition",
+            "src": "656:97:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "name": "updateRefugee",
+              "payable": false,
+              "scope": 87,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 81,
+                "name": "ParameterList",
+                "src": "782:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 84,
+                "name": "ParameterList",
+                "src": "812:0:1"
+              },
+              {
+                "attributes": {
+                  "arguments": [
+                    null
+                  ]
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 47,
+                      "type": "modifier ()",
+                      "value": "onlyLocalGvt"
+                    },
+                    "id": 82,
+                    "name": "Identifier",
+                    "src": "799:12:1"
+                  }
+                ],
+                "id": 83,
+                "name": "ModifierInvocation",
+                "src": "799:12:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 85,
+                "name": "Block",
+                "src": "812:43:1"
+              }
+            ],
+            "id": 86,
+            "name": "FunctionDefinition",
+            "src": "759:96:1"
+          }
+        ],
+        "id": 87,
+        "name": "ContractDefinition",
+        "src": "68:790:1"
+      }
+    ],
+    "id": 88,
+    "name": "SourceUnit",
+    "src": "0:858:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x345ca3e014aaf5dca488057592ee47305d9b3e10"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-31T10:05:14.030Z"
+}
