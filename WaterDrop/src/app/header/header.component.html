@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img alt="Water Drop" src="/assets/water-drop-brand.png" width="20" height="20">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a href="" [routerLink]="['/']">Consumer Panel</a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a href="" [routerLink]="['/issuer']">Issuer Panel</a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a href="" [routerLink]="['/water-company']">Water Company</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
