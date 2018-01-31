@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Gwei-I</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">GWEi-i</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      <div id="petsRow" class="row">
+          <div class="col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Sentiment Assessor</h3>
+              </div>
+              <div class="panel-body">
+                <h6>Please indicate whether the following tweet has Positive or Negative sentiment</h6>
+                <div id="tweet_text"></div>
+                <button class="btn btn-success" id="positiveButton" type="button">Positive</button>
+                <button class="btn btn-danger" id="negativeButton" type="button">Negative</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div id="petsRow" class="row">
+        <div class="col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">My GWEi-I Tokens</h3>
+            </div>
+            <div class="panel-body">
+              <h4>Account Address:</h4> <span id="ethAddress"></span>
+              <strong>Balance</strong>: <span id="TTBalance"></span><img src="images/gIcon.jpeg" height="10" width="10"/><br/><br/>
+              <h4>Transfer</h4>
+              <input type="text" class="form-control" id="TTTransferAddress" placeholder="To:" />
+              <input type="text" class="form-control" id="TTTransferAmount" placeholder="Amount" /><br/>
+              <button class="btn btn-primary" id="transferButton" type="button">Transfer</button>
+              <h4>Exchange for ether</h4> 
+              <strong>Exchange Rate</strong>: <span id="TTBalance"></span>115 985<img src="images/gIcon.jpeg" height="10" width="10"/> to Ether<br/>
+              <p>Target exchange rate 100<img src="images/gIcon.jpeg" height="10" width="10"/> to 1 USD</p>
+              <h4>Transfer</h4>
+              <input type="text" class="form-control" id="exchangeAmount" placeholder="GWeiTokens"/><br/>
+              <button class="btn btn-primary" id="transferButton" type="button">Exchange for eth</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
