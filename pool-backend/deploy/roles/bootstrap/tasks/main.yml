@@ -1,0 +1,37 @@
+- name: Ensure ansible groups exist
+  become: yes
+  group: name=ansible state=present
+
+- name: Ensure ansible user exists
+  become: yes
+  user: name=ansible comment="Ansible" groups="ansible,sudo"
+
+- name: Set up authorized_keys for the deploy user
+  become: yes
+  authorized_key: user=ansible key="{{ item }}"
+  with_file:
+    - public-keys/block.pub
+
+- name: Set ansible permissions in /etc/sudoers
+  become: yes
+  lineinfile: "dest=/etc/sudoers
+              state=present
+              line='ansible ALL=(ALL) NOPASSWD:ALL'
+              validate='/usr/sbin/visudo -cf %s'"
+
+- name: Set timezone variables
+  become: yes
+  copy: content='Africa/Johannesburg'
+        dest=/etc/timezone
+        owner=root
+        group=root
+        mode=0644
+        backup=yes
+  notify:
+    - update timezone
+
+- name: Ensure ntp is installed
+  become: yes
+  apt: name=apt state=present
+
+- { import_tasks: swap.yml }

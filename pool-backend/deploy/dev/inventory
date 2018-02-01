@@ -1,0 +1,14 @@
+[dev]
+api.pool.ac ansible_host=188.166.160.147
+
+[dev:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_private_key_file=~/.ssh/block
+app_server_port=8080
+project_path=/var/www/html
+certbot_auto_renew_user=pool
+certbot_auto_renew_minute=20
+certbot_auto_renew_hour=5
+source_key=~/.ssh/block
+dest_key=~/.ssh/id_rsa
+
