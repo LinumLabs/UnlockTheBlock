@@ -1,0 +1,31 @@
+.claims-container{
+    flex-direction: column;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.claimsTable {
+    flex-direction:column;
+    display:inline-block;
+    align-self:center;
+    justify-self:center;
+}
+.claimsRow {
+    justify-content: space-between;
+    align-items: space-between;
+    flex:1;
+    flex-direction:row;
+  border-bottom: 1px solid #b2b2b2;
+}
+.claimsRow > div {
+    display:inline-flex;
+    flex:2;
+    margin-left:20px;
+    width:150px;
+}
+
+button {
+
+
+}

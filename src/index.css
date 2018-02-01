@@ -1,0 +1,87 @@
+html {
+  font-size: 100%;
+  width:100%;
+  height:100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  width:100%;
+  height:100%;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+#root {
+    height:100%;
+}
+
+.full-height {
+    height:100%;
+}
+
+.center-container {
+    flex-direction: column;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-container > .btn {
+    margin-top:1em;
+    width:400px;
+    text-align:center;
+}
+
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 18;
+  -moz-border-radius: 18;
+  border-radius: 18px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+
+.logout {
+    position:absolute;
+    top:0;
+    right:0;
+    margin-right:10px;
+    margin-top:5px;
+}
+
+
+.form-label {
+
+}
+
+
+.contact-reg{
+    width:50%;
+
+}
