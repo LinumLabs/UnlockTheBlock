@@ -1,0 +1,194 @@
+﻿<nav class="navbar navbar-inverse topnav" id="myTopnav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#" style="margin: 0 auto;">
+                <span>
+                    <img src="/assets/logo.png" width="25px" /> </span>Truffle Butter</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/bank">Bank</a>
+                </li>
+                <li>
+                    <a href="/gdo">GDO</a>
+                </li>
+                <li>
+                    <a href="/register">NGO</a>
+                </li>
+                <li>
+                    <a href="/beneficiary">Beneficiary</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="register">
+                        <span class="glyphicon glyphicon-user"></span>  Manage Beneficiaries</a>
+                </li>
+                <li *ngIf="!loggedin">
+                    <a href="login">
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</nav>
+
+<div class="container">
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse3"><h2 class="">
+                        <i class="fa fa-plus green" aria-hidden="true"></i> Allocate Tokens <i class="fa fa-handshake-o" aria-hidden="true"></i></h2></a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse login">
+                <form name="form" (ngSubmit)="f.form.valid && allocateTokens()" #f="ngForm" >
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !ngo.valid }">
+                        <label for="ngo">Select NGO </label>
+                        <select name="ngo" multiple class="form-control" id="exampleFormControlSelect2" [(ngModel)]="model.ngo" #ngo="ngModel" required>
+                            <option value="0xf17f52151EbEF6C7334FAD080c5704D77216b732">1 - Plan Uganda</option>
+                            <option value="0xf17f52151EbEF6C7334FAD080c5704D77216b732">2 - UWASNET</option>
+                            <option value="0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef">3 - Water Aid Uganda</option>
+        
+                        </select>
+                        <div *ngIf="f.submitted && !ngo.valid" class="help-block">Please select an NGO.</div>
+                    </div>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tokens.valid }">
+                        <label for="tokens">Amount</label>
+                        <input type="number" class="form-control" name="tokens" [(ngModel)]="model.tokens" #tokens="ngModel" required />
+                        <div *ngIf="f.submitted && !tokens.valid" class="help-block">Amount is required</div>
+                    </div>
+   
+                    <div class="form-group">
+                        <button [disabled]="loading" class="btn btn-primary" type="sumbit">
+                            <i class="fa fa-plus green" aria-hidden="true"></i> Allocate</button>
+                        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                        />
+                        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                    </div>
+                </form>
+
+                <div class="green">
+                    {{ transactionHash }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse5">
+                    <h2>
+                        <i class="fa fa-check green" aria-hidden="true"></i> Approve Merchant Claims
+                        <i class="fa fa-ticket" aria-hidden="true"></i>
+                    </h2>
+                </a>
+            </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse login">
+            <form name="form" (ngSubmit)="f.form.valid && remove()" #f="ngForm" novalidate>
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Name</th>
+                            <th>Number of Tokens</th>
+                            <th>Approve/Reject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">12</th>
+                            <td>Una Supplies</td>
+                            <td>50</td>
+                            <td>
+                                <button type="button" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-danger"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14</th>
+                            <td>Bob Supplies</td>
+                            <td>8000</td>
+                            <td>
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Prince Supplies</td>
+                            <td>50000</td>
+                            <td>
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse4">
+                        <h2>
+                            <i class="fa fa-line-chart yellow" aria-hidden="true"></i> Statistical Overview
+                            
+                        </h2>
+                    </a>
+                </h4>
+
+                <div id="collapse4" class="panel-collapse collapse login">
+                    <div class="row">
+                        <div class="col-md-12 chart fix-ben">
+                            <div>
+                                <h3 class="text-center black">Beneficiary Transactions</h3>
+                                <br/>
+                                <div style="display: block;">
+                                    <canvas baseChart [data]="scatterChartData" [labels]="scatterChartLabels" [chartType]="scatterChartType" (chartHover)="chartHovered($event)"
+                                        (chartClick)="chartClicked($event)" [legend]=false></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <img src="/assets/ethplorer.png" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
