@@ -1,0 +1,32 @@
+<div>
+  <div class="top-container">
+    <h1 class="title is-1" style="text-align: center;color:white !important;font-size: 20px !important;padding-top:10px; font-weight: bold;">
+        SIMPLI<span style="color:#55DAE1; font-weight: bold;">WATER</span>
+      </h1>
+    <div class="top-center">
+      <div class="balance-label"> YOUR BALANCE
+      </div>
+      <div class="balance-text">{{meterStats.balance}}L</div>
+      <div class="occupants-text"><img height="30px" width="30px" src="../assets/avatar.png"/> x {{meterStats.occupants}}</div>
+    </div>
+  </div>
+  <div class="bottom-container">
+    <div class="row">
+      <div class="column">Consumption
+        <div class="usage">{{calculationService.usagePerDay()}}L</div>
+        <div class="usage">daily avg</div>
+      </div>
+      <div class="column">Restrictions
+        <div class="usage" style="color:red !important">{{((utilityStats.dailyLimit/1000) * meterStats.occupants).toFixed(0)}}L</div>
+        <div class="usage">daily</div>
+      </div>
+    </div>
+  </div>
+  <div style="height:100%" class="field is-grouped" style="display: flex;justify-content: center;" (click)="buyTokens()">
+    <p class="control">
+      <button class="button proceed">
+        PURCHASE TOKENS
+      </button>
+    </p>
+  </div>
+</div>

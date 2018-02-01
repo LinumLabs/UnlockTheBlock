@@ -1,0 +1,39 @@
+.container {
+  padding: 20px;
+  border: 1px solid #EEEEEE;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.outer {
+  padding: 20px;
+}
+
+.meter {
+  background-color: #EEEEEE;
+}
+
+.zar-container {
+  display: flex;
+  align-items: center;
+}
+
+.control .meter {
+  margin-left: 10px;
+}
+
+.currency-container {
+  border: 1px solid #55DAE1;
+  border-radius: 5px;
+}
+
+
+.conversion-litre-text {
+  font-size: 40px;
+}
+
+.conversion-eth-text {
+  font-size: 30px;
+  font-weight:bold;
+}

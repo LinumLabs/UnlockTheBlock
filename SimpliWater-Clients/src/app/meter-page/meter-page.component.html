@@ -1,0 +1,39 @@
+<div class="overall-container">
+  <div style="margin-top:20%;">
+    <div class="container">
+      <h1 class="title is-1" style="text-align: center;color:white !important;font-size: 45px !important; font-weight: bold;">
+       SIMPLI<span style="color:#55DAE1; font-weight: bold;">WATER</span>
+      </h1>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <h1 class="title is-4 is-info help">{{status}}</h1>
+    <form #coinForm="ngForm">
+      <div class="field">
+      </div>
+      <div style="padding:0px 40px; 0px 40px">
+        <label class="label" style="text-align: center;font-size:25px;color:white !important;">Enter your Meter Address{{balance}}</label>
+      </div>
+      <div class="field" style="padding:10px;">
+        <p class="control">
+          <input [(ngModel)]="meterAddress" style="border-radius: 10px;height: 50px;" name="meterAddress" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="meterAddress" required #meterAddressModel="ngModel">
+        </p>
+        <div style="height:20px">
+          <div *ngIf="meterAddressModel.errors && (meterAddressModel.dirty || meterAddressModel.touched)" class="help is-danger">
+            <p [hidden]="!meterAddressModel.errors.required">
+              This field is required
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="field is-grouped" style="display: flex;justify-content: center;">
+        <p class="control">
+          <button [disabled]="!coinForm.valid" class="button proceed" (click)="getMeterStats()">
+            PROCEED
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
