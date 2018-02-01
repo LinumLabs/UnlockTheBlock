@@ -1,0 +1,25 @@
+{
+  "name": "DToken",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^5.0.0",
+    "ethereumjs-wallet": "^0.6.0",
+    "lite-server": "^2.3.0",
+    "truffle-wallet-provider": "0.0.5"
+  },
+  "dependencies": {
+    "ipfs-mini": "^1.1.2",
+    "zeppelin-solidity": "^1.6.0"
+  }
+}
