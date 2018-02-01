@@ -1,0 +1,40 @@
+<div class="outer">
+  <div class="container">
+    <div style="padding:0px 40px; 0px 40px">
+      <label class="label" style="text-align: center;font-size:20px;color:#717171 !important;">Enter your Meter Address{{balance}}</label>
+    </div>
+    <div class="field" style="padding:10px;">
+      <p class="control">
+        <input [(ngModel)]="meterAddress" style="border-radius: 10px;height: 50px;" name="meterAddress" class="input meter" type="text" name="meterAddress" required #meterAddressModel="ngModel">
+      </p>
+    </div>
+    <div class="currency-container">
+      <div class="field" style="padding:10px 10px 1px 10px;display:flex;margin-bottom: 0px !important">
+        <div class="zar-container">
+          <p>ZAR</p>
+        </div>
+        <p class="control">
+          <input placeholder="Enter Amount" [(ngModel)]="amountRands" style="border-radius: 10px;height: 50px;" name="amountRands" class="input meter" type="number" name="amountRands" required #amountRandsModel="ngModel">
+        </p>
+      </div>
+      <div style="padding:10px 10px 1px 10px;display:flex;flex-direction:row;">
+        <img style="width: 30px !important;height: 30px !important;" src="../assets/arrows.png" />
+        <div style="text-align: center;width:100%">
+          <div *ngIf="calculationService.calculateETH(amountRands) > 0" class="conversin-eth-text">{{calculationService.calculateETH(amountRands).toFixed(18)}} ETH</div>
+          <div *ngIf="calculationService.calculateETH(amountRands) == 0" style="text-align: center;width:100%">
+            <div class="conversin-eth-text">0.0 ETH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div style="text-align: center;">
+      <div class="conversion-litre-text">{{calculatedTokens}}L </div>
+    </div>
+    <div style="display: flex;justify-content: center;margin-top: 50px;" (click)="topUpWithEth()">
+      <p class="control">
+        <button class="button proceed">
+          BUY
+        </button>
+      </p>
+    </div>

@@ -1,0 +1,20 @@
+.has-underline {
+  text-decoration: underline;
+}
+
+.overall-container {
+  background-image: url("../../assets/login-back.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 20px;
+  height: 100%;
+  min-height:100vh;
+}
+
+.button.proceed {
+	border-color: white;
+}
+
+input::placeholder {
+	color: #C6C6C6;
+}

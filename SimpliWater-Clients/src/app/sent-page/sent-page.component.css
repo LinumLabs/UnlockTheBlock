@@ -1,0 +1,50 @@
+.sent-buttons {
+  height: 70px;
+  border-radius: 30px;
+  font-size: 20px;
+  border-width: 3px;
+  font-weight: bold;
+  width: 80%;
+}
+
+.buy {
+  color: white;
+  background-color: #55DAE1;
+  border-color: white !important;
+}
+
+.done {
+  color: #55DAE1;
+  background-color: white;
+  border-color: #55DAE1;
+}
+
+
+.field .control {
+  width: 50%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 25px;
+  color: #55DAE1;
+}
+
+
+
+
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.container-sent {
+  padding: 20px;
+}
