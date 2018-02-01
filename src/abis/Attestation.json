@@ -1,0 +1,3669 @@
+{
+  "contractName": "Attestation",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getClaimsCount",
+      "outputs": [
+        {
+          "name": "claimsCount",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "orgs",
+      "outputs": [
+        {
+          "name": "verified",
+          "type": "bool"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "registrationNumber",
+          "type": "string"
+        },
+        {
+          "name": "uportId",
+          "type": "string"
+        },
+        {
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getOrgsCount",
+      "outputs": [
+        {
+          "name": "orgsCount",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "claims",
+      "outputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "organisation",
+          "type": "address"
+        },
+        {
+          "name": "verified",
+          "type": "bool"
+        },
+        {
+          "name": "isPublic",
+          "type": "bool"
+        },
+        {
+          "name": "claimant",
+          "type": "address"
+        },
+        {
+          "name": "claimantUportId",
+          "type": "string"
+        },
+        {
+          "name": "added",
+          "type": "uint256"
+        },
+        {
+          "name": "claimantName",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "claimIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "verifyClaim",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "claimantName",
+          "type": "string"
+        },
+        {
+          "name": "organisation",
+          "type": "address"
+        },
+        {
+          "name": "claimant",
+          "type": "address"
+        },
+        {
+          "name": "isPublic",
+          "type": "bool"
+        },
+        {
+          "name": "claimantUportId",
+          "type": "string"
+        }
+      ],
+      "name": "addClaim",
+      "outputs": [
+        {
+          "name": "claimIndex",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "uportId",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "registrationNumber",
+          "type": "string"
+        }
+      ],
+      "name": "addOrganisation",
+      "outputs": [
+        {
+          "name": "orgIndex",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "orgAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "uportId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "OrganisationAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "organisation",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "claimant",
+          "type": "address"
+        }
+      ],
+      "name": "ClaimAdded",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061125f8061005e6000396000f300606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ef8f2ba146100885780634f5c2e6c146100b157806376eb92ab146102ba578063a888c2cd146102e3578063c0d7e2b614610531578063c257173014610554578063c35d337014610694575b600080fd5b341561009357600080fd5b61009b61078b565b6040518082815260200191505060405180910390f35b34156100bc57600080fd5b6100d26004808035906020019091905050610798565b60405180861515151581526020018060200180602001806020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184810384528881815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561019f5780601f106101745761010080835404028352916020019161019f565b820191906000526020600020905b81548152906001019060200180831161018257829003601f168201915b50508481038352878181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102225780601f106101f757610100808354040283529160200191610222565b820191906000526020600020905b81548152906001019060200180831161020557829003601f168201915b50508481038252868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102a55780601f1061027a576101008083540402835291602001916102a5565b820191906000526020600020905b81548152906001019060200180831161028857829003601f168201915b50509850505050505050505060405180910390f35b34156102c557600080fd5b6102cd610807565b6040518082815260200191505060405180910390f35b34156102ee57600080fd5b6103046004808035906020019091905050610814565b60405180806020018973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200188151515158152602001871515151581526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001806020018581526020018060200184810384528c8181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156104135780601f106103e857610100808354040283529160200191610413565b820191906000526020600020905b8154815290600101906020018083116103f657829003601f168201915b50508481038352878181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156104965780601f1061046b57610100808354040283529160200191610496565b820191906000526020600020905b81548152906001019060200180831161047957829003601f168201915b50508481038252858181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156105195780601f106104ee57610100808354040283529160200191610519565b820191906000526020600020905b8154815290600101906020018083116104fc57829003601f168201915b50509b50505050505050505050505060405180910390f35b341561053c57600080fd5b61055260048080359060200190919050506108c2565b005b341561055f57600080fd5b61067e600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035151590602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610986565b6040518082815260200191505060405180910390f35b341561069f57600080fd5b610775600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610c0e565b6040518082815260200191505060405180910390f35b6000600280549050905090565b6001818154811015156107a757fe5b90600052602060002090600502016000915090508060000160009054906101000a900460ff16908060010190806002019080600301908060040160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905085565b6000600180549050905090565b60028181548110151561082357fe5b906000526020600020906006020160009150905080600001908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010160149054906101000a900460ff16908060010160159054906101000a900460ff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806003019080600401549080600501905088565b60006002828154811015156108d357fe5b906000526020600020906006020190508060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561094157600080fd5b600015158160010160149054906101000a900460ff16151514151561096557600080fd5b60018160010160146101000a81548160ff0219169083151502179055505050565b6000610990610e95565b87816000018190525085816020019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff168152505060008160400190151590811515815250508381606001901515908115158152505084816080019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff1681525050828160a00181905250428160c0018181525050868160e00181905250600160028054806001018281610a5c9190610f1d565b916000526020600020906006020160008490919091506000820151816000019080519060200190610a8e929190610f4f565b5060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160010160146101000a81548160ff02191690831515021790555060608201518160010160156101000a81548160ff02191690831515021790555060808201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060a0820151816003019080519060200190610b79929190610f4f565b5060c0820151816004015560e0820151816005019080519060200190610ba0929190610f4f565b5050500391508473ffffffffffffffffffffffffffffffffffffffff168673ffffffffffffffffffffffffffffffffffffffff167f048fb386b60c0381c35ec94e3c4fb28df18491980eb5a75d1a8fa9fa7c4fbd2d60405160405180910390a3819150509695505050505050565b6000610c18610fcf565b600081600001901515908115158152505083816020018190525082816040018190525084816060018190525033816080019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff16815250506001808054806001018281610c919190611029565b9160005260206000209060050201600084909190915060008201518160000160006101000a81548160ff0219169083151502179055506020820151816001019080519060200190610ce3929190610f4f565b506040820151816002019080519060200190610d00929190610f4f565b506060820151816003019080519060200190610d1d929190610f4f565b5060808201518160040160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050500391503373ffffffffffffffffffffffffffffffffffffffff167fc4ec86da02df194278df461483335e5aa900124a9e37bc7783e6df9f23115f778686604051808060200180602001838103835285818151815260200191508051906020019080838360005b83811015610de8578082015181840152602081019050610dcd565b50505050905090810190601f168015610e155780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610e4e578082015181840152602081019050610e33565b50505050905090810190601f168015610e7b5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a2819150509392505050565b61010060405190810160405280610eaa61105b565b8152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600015158152602001600015158152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001610f0361105b565b815260200160008152602001610f1761105b565b81525090565b815481835581811511610f4a57600602816006028360005260206000209182019101610f49919061106f565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610f9057805160ff1916838001178555610fbe565b82800160010185558215610fbe579182015b82811115610fbd578251825591602001919060010190610fa2565b5b509050610fcb919061113c565b5090565b60a060405190810160405280600015158152602001610fec61105b565b8152602001610ff961105b565b815260200161100661105b565b8152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b815481835581811511611056576005028160050283600052602060002091820191016110559190611161565b5b505050565b602060405190810160405280600081525090565b61113991905b80821115611135576000808201600061108e91906111eb565b6001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556001820160146101000a81549060ff02191690556001820160156101000a81549060ff02191690556002820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905560038201600061111491906111eb565b600482016000905560058201600061112c91906111eb565b50600601611075565b5090565b90565b61115e91905b8082111561115a576000816000905550600101611142565b5090565b90565b6111e891905b808211156111e457600080820160006101000a81549060ff021916905560018201600061119491906111eb565b6002820160006111a491906111eb565b6003820160006111b491906111eb565b6004820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550600501611167565b5090565b90565b50805460018160011615610100020316600290046000825580601f106112115750611230565b601f01602090049060005260206000209081019061122f919061113c565b5b505600a165627a7a72305820c7c67c2ef1cb8538e643ad948101362e5775f5367c53a0fd2436d1a96211e5eb0029",
+  "deployedBytecode": "0x606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ef8f2ba146100885780634f5c2e6c146100b157806376eb92ab146102ba578063a888c2cd146102e3578063c0d7e2b614610531578063c257173014610554578063c35d337014610694575b600080fd5b341561009357600080fd5b61009b61078b565b6040518082815260200191505060405180910390f35b34156100bc57600080fd5b6100d26004808035906020019091905050610798565b60405180861515151581526020018060200180602001806020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184810384528881815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561019f5780601f106101745761010080835404028352916020019161019f565b820191906000526020600020905b81548152906001019060200180831161018257829003601f168201915b50508481038352878181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102225780601f106101f757610100808354040283529160200191610222565b820191906000526020600020905b81548152906001019060200180831161020557829003601f168201915b50508481038252868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102a55780601f1061027a576101008083540402835291602001916102a5565b820191906000526020600020905b81548152906001019060200180831161028857829003601f168201915b50509850505050505050505060405180910390f35b34156102c557600080fd5b6102cd610807565b6040518082815260200191505060405180910390f35b34156102ee57600080fd5b6103046004808035906020019091905050610814565b60405180806020018973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200188151515158152602001871515151581526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001806020018581526020018060200184810384528c8181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156104135780601f106103e857610100808354040283529160200191610413565b820191906000526020600020905b8154815290600101906020018083116103f657829003601f168201915b50508481038352878181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156104965780601f1061046b57610100808354040283529160200191610496565b820191906000526020600020905b81548152906001019060200180831161047957829003601f168201915b50508481038252858181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156105195780601f106104ee57610100808354040283529160200191610519565b820191906000526020600020905b8154815290600101906020018083116104fc57829003601f168201915b50509b50505050505050505050505060405180910390f35b341561053c57600080fd5b61055260048080359060200190919050506108c2565b005b341561055f57600080fd5b61067e600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035151590602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610986565b6040518082815260200191505060405180910390f35b341561069f57600080fd5b610775600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610c0e565b6040518082815260200191505060405180910390f35b6000600280549050905090565b6001818154811015156107a757fe5b90600052602060002090600502016000915090508060000160009054906101000a900460ff16908060010190806002019080600301908060040160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905085565b6000600180549050905090565b60028181548110151561082357fe5b906000526020600020906006020160009150905080600001908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010160149054906101000a900460ff16908060010160159054906101000a900460ff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806003019080600401549080600501905088565b60006002828154811015156108d357fe5b906000526020600020906006020190508060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561094157600080fd5b600015158160010160149054906101000a900460ff16151514151561096557600080fd5b60018160010160146101000a81548160ff0219169083151502179055505050565b6000610990610e95565b87816000018190525085816020019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff168152505060008160400190151590811515815250508381606001901515908115158152505084816080019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff1681525050828160a00181905250428160c0018181525050868160e00181905250600160028054806001018281610a5c9190610f1d565b916000526020600020906006020160008490919091506000820151816000019080519060200190610a8e929190610f4f565b5060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160010160146101000a81548160ff02191690831515021790555060608201518160010160156101000a81548160ff02191690831515021790555060808201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060a0820151816003019080519060200190610b79929190610f4f565b5060c0820151816004015560e0820151816005019080519060200190610ba0929190610f4f565b5050500391508473ffffffffffffffffffffffffffffffffffffffff168673ffffffffffffffffffffffffffffffffffffffff167f048fb386b60c0381c35ec94e3c4fb28df18491980eb5a75d1a8fa9fa7c4fbd2d60405160405180910390a3819150509695505050505050565b6000610c18610fcf565b600081600001901515908115158152505083816020018190525082816040018190525084816060018190525033816080019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff16815250506001808054806001018281610c919190611029565b9160005260206000209060050201600084909190915060008201518160000160006101000a81548160ff0219169083151502179055506020820151816001019080519060200190610ce3929190610f4f565b506040820151816002019080519060200190610d00929190610f4f565b506060820151816003019080519060200190610d1d929190610f4f565b5060808201518160040160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050500391503373ffffffffffffffffffffffffffffffffffffffff167fc4ec86da02df194278df461483335e5aa900124a9e37bc7783e6df9f23115f778686604051808060200180602001838103835285818151815260200191508051906020019080838360005b83811015610de8578082015181840152602081019050610dcd565b50505050905090810190601f168015610e155780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610e4e578082015181840152602081019050610e33565b50505050905090810190601f168015610e7b5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a2819150509392505050565b61010060405190810160405280610eaa61105b565b8152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600015158152602001600015158152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001610f0361105b565b815260200160008152602001610f1761105b565b81525090565b815481835581811511610f4a57600602816006028360005260206000209182019101610f49919061106f565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610f9057805160ff1916838001178555610fbe565b82800160010185558215610fbe579182015b82811115610fbd578251825591602001919060010190610fa2565b5b509050610fcb919061113c565b5090565b60a060405190810160405280600015158152602001610fec61105b565b8152602001610ff961105b565b815260200161100661105b565b8152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b815481835581811511611056576005028160050283600052602060002091820191016110559190611161565b5b505050565b602060405190810160405280600081525090565b61113991905b80821115611135576000808201600061108e91906111eb565b6001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556001820160146101000a81549060ff02191690556001820160156101000a81549060ff02191690556002820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905560038201600061111491906111eb565b600482016000905560058201600061112c91906111eb565b50600601611075565b5090565b90565b61115e91905b8082111561115a576000816000905550600101611142565b5090565b90565b6111e891905b808211156111e457600080820160006101000a81549060ff021916905560018201600061119491906111eb565b6002820160006111a491906111eb565b6003820160006111b491906111eb565b6004820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550600501611167565b5090565b90565b50805460018160011615610100020316600290046000825580601f106112115750611230565b601f01602090049060005260206000209081019061122f919061113c565b5b505600a165627a7a72305820c7c67c2ef1cb8538e643ad948101362e5775f5367c53a0fd2436d1a96211e5eb0029",
+  "sourceMap": "26:2654:0:-;;;1379:59;;;;;;;;1423:10;1415:5;;:18;;;;;;;;;;;;;;;;;;26:2654;;;;;;",
+  "deployedSourceMap": "26:2654:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2579:99;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;77:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2482:93;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;191:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1890:202;;;;;;;;;;;;;;;;;;;;;;;;;;783:592;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1442:444;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2579:99;2629:16;2660:6;:13;;;;2653:20;;2579:99;:::o;77:26::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;2482:93::-;2530:14;2559:4;:11;;;;2552:18;;2482:93;:::o;191:21::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1890:202::-;1941:11;1955:6;1962:10;1955:18;;;;;;;;;;;;;;;;;;;;1941:32;;2002:5;:18;;;;;;;;;;;;1988:32;;:10;:32;;;1980:41;;;;;;;;2053:5;2035:23;;:5;:14;;;;;;;;;;;;:23;;;2027:32;;;;;;;;2083:4;2066:5;:14;;;:21;;;;;;;;;;;;;;;;;;1890:202;;:::o;783:592::-;930:15;953:18;;:::i;:::-;991:4;978:5;:10;;:17;;;;1022:12;1001:5;:18;;:33;;;;;;;;;;;1057:5;1040;:14;;:22;;;;;;;;;;;1107:8;1090:5;:14;;:25;;;;;;;;;;;1138:8;1121:5;:14;;:25;;;;;;;;;;;1176:15;1152:5;:21;;:39;;;;1211:15;1197:5;:11;;:29;;;;;1253:12;1232:5;:18;;:33;;;;1304:1;1285:6;:18;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;1297:5;1285:18;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:20;1272:33;;1337:8;1312:34;;1323:12;1312:34;;;;;;;;;;;;1360:10;1353:17;;783:592;;;;;;;;;:::o;1442:444::-;1538:13;1602:23;;:::i;:::-;1645:5;1632:3;:12;;:18;;;;;;;;;;;1666:4;1656:3;:8;;:14;;;;1700:18;1676:3;:22;;:42;;;;1738:7;1724:3;:11;;:21;;;;1763:10;1751:3;:9;;:22;;;;;;;;;;;1806:1;1791:4;:14;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;1801:3;1791:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:16;1780:27;;1832:10;1814:44;;;1844:7;1853:4;1814:44;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1872:8:0;1865:15;;1442:444;;;;;;:::o;26:2654::-;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.4.17;\n\ncontract Attestation {\n\n  address private owner;\n  Organisation[] public orgs;\n  //we need to figure out how one can return a filtered list of claims for someone.\n  Claim[] public claims;\n\n  event OrganisationAdded(address indexed orgAddress, string uportId, string name);\n  event ClaimAdded(address indexed organisation, address indexed claimant);\n\n  struct Organisation {\n    bool verified;\n    string name;\n    string registrationNumber;\n    string uportId;\n    address owner;\n  }\n\n  //too much information, will reduce later once we know what isn't useful.\n  struct Claim {\n    string name;\n    address organisation;\n    bool verified;\n    bool isPublic;\n    address claimant;\n    string claimantUportId;\n    uint added;\n    string claimantName;\n  }\n\n  function addClaim(string name, string claimantName, address organisation, address claimant, bool isPublic, string claimantUportId) public returns (uint claimIndex) {\n    Claim memory claim;\n\n    claim.name = name;\n    claim.organisation = organisation;\n    claim.verified = false;//make sure it's false\n    claim.isPublic = isPublic;\n    claim.claimant = claimant;\n    claim.claimantUportId = claimantUportId;\n    claim.added = block.timestamp;\n    claim.claimantName = claimantName;\n\n    claimIndex = claims.push(claim)-1;\n\n    ClaimAdded(organisation, claimant);\n\n    return claimIndex;\n  }\n\n  function Attestation() public {\n    owner = msg.sender;\n  }\n\n  function addOrganisation(string uportId, string name,string registrationNumber) public returns (uint orgIndex){\n    //require(!organisations[msg.sender]);\n\n    Organisation memory org;\n\n    org.verified=false;\n    org.name= name;\n    org.registrationNumber= registrationNumber;\n    org.uportId = uportId;\n    org.owner = msg.sender;\n\n    orgIndex = orgs.push(org)-1;\n\n    OrganisationAdded(msg.sender, uportId, name);\n\n    return orgIndex;\n\n  }\n\n  function verifyClaim(uint claimIndex) public {\n    Claim claim = claims[claimIndex];\n\n    require(msg.sender == claim.organisation);\n    require(claim.verified == false);\n\n    claim.verified = true;\n  }\n\n  //make this protected by either the claimant or public or organisation\n\n  /* function getClaims(address claimant) returns (uint[10]){ */\n  /*   uint[] memory claimIds = new uint[]; */\n  /*   for (uint i =0; i < getClaimsCount(); i++){ */\n  /*     if (claims[i].claimant == claimant){ */\n  /*       claimIds.push(i); */\n  /*     } */\n  /*   } */\n\n  /*   return claimIds; */\n  /* } */\n\n  function getOrgsCount() public constant returns(uint orgsCount) {\n    return orgs.length;\n  }\n\n  function getClaimsCount() public constant returns(uint claimsCount) {\n    return claims.length;\n  }\n}\n",
+  "sourcePath": "/Users/theobohnen/Source/unlocktheblock/website/contracts/Attestations.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/theobohnen/Source/unlocktheblock/website/contracts/Attestations.sol",
+      "exportedSymbols": {
+        "Attestation": [
+          262
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            262
+          ],
+          "name": "Attestation",
+          "scope": 263
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "owner",
+              "scope": 262,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 2,
+                "name": "ElementaryTypeName",
+                "src": "52:7:0"
+              }
+            ],
+            "id": 3,
+            "name": "VariableDeclaration",
+            "src": "52:21:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "orgs",
+              "scope": 262,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct Attestation.Organisation storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct Attestation.Organisation storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Organisation",
+                      "referencedDeclaration": 34,
+                      "type": "struct Attestation.Organisation storage pointer"
+                    },
+                    "id": 4,
+                    "name": "UserDefinedTypeName",
+                    "src": "77:12:0"
+                  }
+                ],
+                "id": 5,
+                "name": "ArrayTypeName",
+                "src": "77:14:0"
+              }
+            ],
+            "id": 6,
+            "name": "VariableDeclaration",
+            "src": "77:26:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "claims",
+              "scope": 262,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct Attestation.Claim storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct Attestation.Claim storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Claim",
+                      "referencedDeclaration": 51,
+                      "type": "struct Attestation.Claim storage pointer"
+                    },
+                    "id": 7,
+                    "name": "UserDefinedTypeName",
+                    "src": "191:5:0"
+                  }
+                ],
+                "id": 8,
+                "name": "ArrayTypeName",
+                "src": "191:7:0"
+              }
+            ],
+            "id": 9,
+            "name": "VariableDeclaration",
+            "src": "191:21:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "OrganisationAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "orgAddress",
+                      "scope": 17,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 10,
+                        "name": "ElementaryTypeName",
+                        "src": "241:7:0"
+                      }
+                    ],
+                    "id": 11,
+                    "name": "VariableDeclaration",
+                    "src": "241:26:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "uportId",
+                      "scope": 17,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 12,
+                        "name": "ElementaryTypeName",
+                        "src": "269:6:0"
+                      }
+                    ],
+                    "id": 13,
+                    "name": "VariableDeclaration",
+                    "src": "269:14:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "name",
+                      "scope": 17,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 14,
+                        "name": "ElementaryTypeName",
+                        "src": "285:6:0"
+                      }
+                    ],
+                    "id": 15,
+                    "name": "VariableDeclaration",
+                    "src": "285:11:0"
+                  }
+                ],
+                "id": 16,
+                "name": "ParameterList",
+                "src": "240:57:0"
+              }
+            ],
+            "id": 17,
+            "name": "EventDefinition",
+            "src": "217:81:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "ClaimAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "organisation",
+                      "scope": 23,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 18,
+                        "name": "ElementaryTypeName",
+                        "src": "318:7:0"
+                      }
+                    ],
+                    "id": 19,
+                    "name": "VariableDeclaration",
+                    "src": "318:28:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "claimant",
+                      "scope": 23,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 20,
+                        "name": "ElementaryTypeName",
+                        "src": "348:7:0"
+                      }
+                    ],
+                    "id": 21,
+                    "name": "VariableDeclaration",
+                    "src": "348:24:0"
+                  }
+                ],
+                "id": 22,
+                "name": "ParameterList",
+                "src": "317:56:0"
+              }
+            ],
+            "id": 23,
+            "name": "EventDefinition",
+            "src": "301:73:0"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Attestation.Organisation",
+              "name": "Organisation",
+              "scope": 262,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "verified",
+                  "scope": 34,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 24,
+                    "name": "ElementaryTypeName",
+                    "src": "404:4:0"
+                  }
+                ],
+                "id": 25,
+                "name": "VariableDeclaration",
+                "src": "404:13:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "name",
+                  "scope": 34,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 26,
+                    "name": "ElementaryTypeName",
+                    "src": "423:6:0"
+                  }
+                ],
+                "id": 27,
+                "name": "VariableDeclaration",
+                "src": "423:11:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "registrationNumber",
+                  "scope": 34,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 28,
+                    "name": "ElementaryTypeName",
+                    "src": "440:6:0"
+                  }
+                ],
+                "id": 29,
+                "name": "VariableDeclaration",
+                "src": "440:25:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "uportId",
+                  "scope": 34,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 30,
+                    "name": "ElementaryTypeName",
+                    "src": "471:6:0"
+                  }
+                ],
+                "id": 31,
+                "name": "VariableDeclaration",
+                "src": "471:14:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "owner",
+                  "scope": 34,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 32,
+                    "name": "ElementaryTypeName",
+                    "src": "491:7:0"
+                  }
+                ],
+                "id": 33,
+                "name": "VariableDeclaration",
+                "src": "491:13:0"
+              }
+            ],
+            "id": 34,
+            "name": "StructDefinition",
+            "src": "378:131:0"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Attestation.Claim",
+              "name": "Claim",
+              "scope": 262,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "name",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 35,
+                    "name": "ElementaryTypeName",
+                    "src": "608:6:0"
+                  }
+                ],
+                "id": 36,
+                "name": "VariableDeclaration",
+                "src": "608:11:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "organisation",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 37,
+                    "name": "ElementaryTypeName",
+                    "src": "625:7:0"
+                  }
+                ],
+                "id": 38,
+                "name": "VariableDeclaration",
+                "src": "625:20:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "verified",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 39,
+                    "name": "ElementaryTypeName",
+                    "src": "651:4:0"
+                  }
+                ],
+                "id": 40,
+                "name": "VariableDeclaration",
+                "src": "651:13:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "isPublic",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 41,
+                    "name": "ElementaryTypeName",
+                    "src": "670:4:0"
+                  }
+                ],
+                "id": 42,
+                "name": "VariableDeclaration",
+                "src": "670:13:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "claimant",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 43,
+                    "name": "ElementaryTypeName",
+                    "src": "689:7:0"
+                  }
+                ],
+                "id": 44,
+                "name": "VariableDeclaration",
+                "src": "689:16:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "claimantUportId",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 45,
+                    "name": "ElementaryTypeName",
+                    "src": "711:6:0"
+                  }
+                ],
+                "id": 46,
+                "name": "VariableDeclaration",
+                "src": "711:22:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "added",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 47,
+                    "name": "ElementaryTypeName",
+                    "src": "739:4:0"
+                  }
+                ],
+                "id": 48,
+                "name": "VariableDeclaration",
+                "src": "739:10:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "claimantName",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 49,
+                    "name": "ElementaryTypeName",
+                    "src": "755:6:0"
+                  }
+                ],
+                "id": 50,
+                "name": "VariableDeclaration",
+                "src": "755:19:0"
+              }
+            ],
+            "id": 51,
+            "name": "StructDefinition",
+            "src": "589:190:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "addClaim",
+              "payable": false,
+              "scope": 262,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "name",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 52,
+                        "name": "ElementaryTypeName",
+                        "src": "801:6:0"
+                      }
+                    ],
+                    "id": 53,
+                    "name": "VariableDeclaration",
+                    "src": "801:11:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "claimantName",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 54,
+                        "name": "ElementaryTypeName",
+                        "src": "814:6:0"
+                      }
+                    ],
+                    "id": 55,
+                    "name": "VariableDeclaration",
+                    "src": "814:19:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "organisation",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 56,
+                        "name": "ElementaryTypeName",
+                        "src": "835:7:0"
+                      }
+                    ],
+                    "id": 57,
+                    "name": "VariableDeclaration",
+                    "src": "835:20:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "claimant",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 58,
+                        "name": "ElementaryTypeName",
+                        "src": "857:7:0"
+                      }
+                    ],
+                    "id": 59,
+                    "name": "VariableDeclaration",
+                    "src": "857:16:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "isPublic",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 60,
+                        "name": "ElementaryTypeName",
+                        "src": "875:4:0"
+                      }
+                    ],
+                    "id": 61,
+                    "name": "VariableDeclaration",
+                    "src": "875:13:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "claimantUportId",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 62,
+                        "name": "ElementaryTypeName",
+                        "src": "890:6:0"
+                      }
+                    ],
+                    "id": 63,
+                    "name": "VariableDeclaration",
+                    "src": "890:22:0"
+                  }
+                ],
+                "id": 64,
+                "name": "ParameterList",
+                "src": "800:113:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "claimIndex",
+                      "scope": 137,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 65,
+                        "name": "ElementaryTypeName",
+                        "src": "930:4:0"
+                      }
+                    ],
+                    "id": 66,
+                    "name": "VariableDeclaration",
+                    "src": "930:15:0"
+                  }
+                ],
+                "id": 67,
+                "name": "ParameterList",
+                "src": "929:17:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        null
+                      ],
+                      "initialValue": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "claim",
+                          "scope": 137,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct Attestation.Claim memory",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Claim",
+                              "referencedDeclaration": 51,
+                              "type": "struct Attestation.Claim storage pointer"
+                            },
+                            "id": 68,
+                            "name": "UserDefinedTypeName",
+                            "src": "953:5:0"
+                          }
+                        ],
+                        "id": 69,
+                        "name": "VariableDeclaration",
+                        "src": "953:18:0"
+                      }
+                    ],
+                    "id": 70,
+                    "name": "VariableDeclarationStatement",
+                    "src": "953:18:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "name",
+                              "referencedDeclaration": 36,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 71,
+                                "name": "Identifier",
+                                "src": "978:5:0"
+                              }
+                            ],
+                            "id": 73,
+                            "name": "MemberAccess",
+                            "src": "978:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 53,
+                              "type": "string memory",
+                              "value": "name"
+                            },
+                            "id": 74,
+                            "name": "Identifier",
+                            "src": "991:4:0"
+                          }
+                        ],
+                        "id": 75,
+                        "name": "Assignment",
+                        "src": "978:17:0"
+                      }
+                    ],
+                    "id": 76,
+                    "name": "ExpressionStatement",
+                    "src": "978:17:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "organisation",
+                              "referencedDeclaration": 38,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 77,
+                                "name": "Identifier",
+                                "src": "1001:5:0"
+                              }
+                            ],
+                            "id": 79,
+                            "name": "MemberAccess",
+                            "src": "1001:18:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 57,
+                              "type": "address",
+                              "value": "organisation"
+                            },
+                            "id": 80,
+                            "name": "Identifier",
+                            "src": "1022:12:0"
+                          }
+                        ],
+                        "id": 81,
+                        "name": "Assignment",
+                        "src": "1001:33:0"
+                      }
+                    ],
+                    "id": 82,
+                    "name": "ExpressionStatement",
+                    "src": "1001:33:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "verified",
+                              "referencedDeclaration": 40,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 83,
+                                "name": "Identifier",
+                                "src": "1040:5:0"
+                              }
+                            ],
+                            "id": 85,
+                            "name": "MemberAccess",
+                            "src": "1040:14:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "66616c7365",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "false"
+                            },
+                            "id": 86,
+                            "name": "Literal",
+                            "src": "1057:5:0"
+                          }
+                        ],
+                        "id": 87,
+                        "name": "Assignment",
+                        "src": "1040:22:0"
+                      }
+                    ],
+                    "id": 88,
+                    "name": "ExpressionStatement",
+                    "src": "1040:22:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "isPublic",
+                              "referencedDeclaration": 42,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 89,
+                                "name": "Identifier",
+                                "src": "1090:5:0"
+                              }
+                            ],
+                            "id": 91,
+                            "name": "MemberAccess",
+                            "src": "1090:14:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 61,
+                              "type": "bool",
+                              "value": "isPublic"
+                            },
+                            "id": 92,
+                            "name": "Identifier",
+                            "src": "1107:8:0"
+                          }
+                        ],
+                        "id": 93,
+                        "name": "Assignment",
+                        "src": "1090:25:0"
+                      }
+                    ],
+                    "id": 94,
+                    "name": "ExpressionStatement",
+                    "src": "1090:25:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "claimant",
+                              "referencedDeclaration": 44,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 95,
+                                "name": "Identifier",
+                                "src": "1121:5:0"
+                              }
+                            ],
+                            "id": 97,
+                            "name": "MemberAccess",
+                            "src": "1121:14:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 59,
+                              "type": "address",
+                              "value": "claimant"
+                            },
+                            "id": 98,
+                            "name": "Identifier",
+                            "src": "1138:8:0"
+                          }
+                        ],
+                        "id": 99,
+                        "name": "Assignment",
+                        "src": "1121:25:0"
+                      }
+                    ],
+                    "id": 100,
+                    "name": "ExpressionStatement",
+                    "src": "1121:25:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "claimantUportId",
+                              "referencedDeclaration": 46,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 101,
+                                "name": "Identifier",
+                                "src": "1152:5:0"
+                              }
+                            ],
+                            "id": 103,
+                            "name": "MemberAccess",
+                            "src": "1152:21:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 63,
+                              "type": "string memory",
+                              "value": "claimantUportId"
+                            },
+                            "id": 104,
+                            "name": "Identifier",
+                            "src": "1176:15:0"
+                          }
+                        ],
+                        "id": 105,
+                        "name": "Assignment",
+                        "src": "1152:39:0"
+                      }
+                    ],
+                    "id": 106,
+                    "name": "ExpressionStatement",
+                    "src": "1152:39:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "added",
+                              "referencedDeclaration": 48,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 107,
+                                "name": "Identifier",
+                                "src": "1197:5:0"
+                              }
+                            ],
+                            "id": 109,
+                            "name": "MemberAccess",
+                            "src": "1197:11:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "timestamp",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 266,
+                                  "type": "block",
+                                  "value": "block"
+                                },
+                                "id": 110,
+                                "name": "Identifier",
+                                "src": "1211:5:0"
+                              }
+                            ],
+                            "id": 111,
+                            "name": "MemberAccess",
+                            "src": "1211:15:0"
+                          }
+                        ],
+                        "id": 112,
+                        "name": "Assignment",
+                        "src": "1197:29:0"
+                      }
+                    ],
+                    "id": 113,
+                    "name": "ExpressionStatement",
+                    "src": "1197:29:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "claimantName",
+                              "referencedDeclaration": 50,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "struct Attestation.Claim memory",
+                                  "value": "claim"
+                                },
+                                "id": 114,
+                                "name": "Identifier",
+                                "src": "1232:5:0"
+                              }
+                            ],
+                            "id": 116,
+                            "name": "MemberAccess",
+                            "src": "1232:18:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 55,
+                              "type": "string memory",
+                              "value": "claimantName"
+                            },
+                            "id": 117,
+                            "name": "Identifier",
+                            "src": "1253:12:0"
+                          }
+                        ],
+                        "id": 118,
+                        "name": "Assignment",
+                        "src": "1232:33:0"
+                      }
+                    ],
+                    "id": 119,
+                    "name": "ExpressionStatement",
+                    "src": "1232:33:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 66,
+                              "type": "uint256",
+                              "value": "claimIndex"
+                            },
+                            "id": 120,
+                            "name": "Identifier",
+                            "src": "1272:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "-",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "uint256",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_struct$_Claim_$51_memory_ptr",
+                                          "typeString": "struct Attestation.Claim memory"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "push",
+                                      "referencedDeclaration": null,
+                                      "type": "function (struct Attestation.Claim storage ref) returns (uint256)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 9,
+                                          "type": "struct Attestation.Claim storage ref[] storage ref",
+                                          "value": "claims"
+                                        },
+                                        "id": 121,
+                                        "name": "Identifier",
+                                        "src": "1285:6:0"
+                                      }
+                                    ],
+                                    "id": 122,
+                                    "name": "MemberAccess",
+                                    "src": "1285:11:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 69,
+                                      "type": "struct Attestation.Claim memory",
+                                      "value": "claim"
+                                    },
+                                    "id": 123,
+                                    "name": "Identifier",
+                                    "src": "1297:5:0"
+                                  }
+                                ],
+                                "id": 124,
+                                "name": "FunctionCall",
+                                "src": "1285:18:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "31",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 1",
+                                  "value": "1"
+                                },
+                                "id": 125,
+                                "name": "Literal",
+                                "src": "1304:1:0"
+                              }
+                            ],
+                            "id": 126,
+                            "name": "BinaryOperation",
+                            "src": "1285:20:0"
+                          }
+                        ],
+                        "id": 127,
+                        "name": "Assignment",
+                        "src": "1272:33:0"
+                      }
+                    ],
+                    "id": 128,
+                    "name": "ExpressionStatement",
+                    "src": "1272:33:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 23,
+                              "type": "function (address,address)",
+                              "value": "ClaimAdded"
+                            },
+                            "id": 129,
+                            "name": "Identifier",
+                            "src": "1312:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 57,
+                              "type": "address",
+                              "value": "organisation"
+                            },
+                            "id": 130,
+                            "name": "Identifier",
+                            "src": "1323:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 59,
+                              "type": "address",
+                              "value": "claimant"
+                            },
+                            "id": 131,
+                            "name": "Identifier",
+                            "src": "1337:8:0"
+                          }
+                        ],
+                        "id": 132,
+                        "name": "FunctionCall",
+                        "src": "1312:34:0"
+                      }
+                    ],
+                    "id": 133,
+                    "name": "ExpressionStatement",
+                    "src": "1312:34:0"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 67
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 66,
+                          "type": "uint256",
+                          "value": "claimIndex"
+                        },
+                        "id": 134,
+                        "name": "Identifier",
+                        "src": "1360:10:0"
+                      }
+                    ],
+                    "id": 135,
+                    "name": "Return",
+                    "src": "1353:17:0"
+                  }
+                ],
+                "id": 136,
+                "name": "Block",
+                "src": "947:428:0"
+              }
+            ],
+            "id": 137,
+            "name": "FunctionDefinition",
+            "src": "783:592:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "Attestation",
+              "payable": false,
+              "scope": 262,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 138,
+                "name": "ParameterList",
+                "src": "1399:2:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 139,
+                "name": "ParameterList",
+                "src": "1409:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3,
+                              "type": "address",
+                              "value": "owner"
+                            },
+                            "id": 140,
+                            "name": "Identifier",
+                            "src": "1415:5:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 274,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 141,
+                                "name": "Identifier",
+                                "src": "1423:3:0"
+                              }
+                            ],
+                            "id": 142,
+                            "name": "MemberAccess",
+                            "src": "1423:10:0"
+                          }
+                        ],
+                        "id": 143,
+                        "name": "Assignment",
+                        "src": "1415:18:0"
+                      }
+                    ],
+                    "id": 144,
+                    "name": "ExpressionStatement",
+                    "src": "1415:18:0"
+                  }
+                ],
+                "id": 145,
+                "name": "Block",
+                "src": "1409:29:0"
+              }
+            ],
+            "id": 146,
+            "name": "FunctionDefinition",
+            "src": "1379:59:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "addOrganisation",
+              "payable": false,
+              "scope": 262,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "uportId",
+                      "scope": 210,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 147,
+                        "name": "ElementaryTypeName",
+                        "src": "1467:6:0"
+                      }
+                    ],
+                    "id": 148,
+                    "name": "VariableDeclaration",
+                    "src": "1467:14:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "name",
+                      "scope": 210,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 149,
+                        "name": "ElementaryTypeName",
+                        "src": "1483:6:0"
+                      }
+                    ],
+                    "id": 150,
+                    "name": "VariableDeclaration",
+                    "src": "1483:11:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "registrationNumber",
+                      "scope": 210,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 151,
+                        "name": "ElementaryTypeName",
+                        "src": "1495:6:0"
+                      }
+                    ],
+                    "id": 152,
+                    "name": "VariableDeclaration",
+                    "src": "1495:25:0"
+                  }
+                ],
+                "id": 153,
+                "name": "ParameterList",
+                "src": "1466:55:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "orgIndex",
+                      "scope": 210,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 154,
+                        "name": "ElementaryTypeName",
+                        "src": "1538:4:0"
+                      }
+                    ],
+                    "id": 155,
+                    "name": "VariableDeclaration",
+                    "src": "1538:13:0"
+                  }
+                ],
+                "id": 156,
+                "name": "ParameterList",
+                "src": "1537:15:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        null
+                      ],
+                      "initialValue": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "org",
+                          "scope": 210,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct Attestation.Organisation memory",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Organisation",
+                              "referencedDeclaration": 34,
+                              "type": "struct Attestation.Organisation storage pointer"
+                            },
+                            "id": 157,
+                            "name": "UserDefinedTypeName",
+                            "src": "1602:12:0"
+                          }
+                        ],
+                        "id": 158,
+                        "name": "VariableDeclaration",
+                        "src": "1602:23:0"
+                      }
+                    ],
+                    "id": 159,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1602:23:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "verified",
+                              "referencedDeclaration": 25,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 158,
+                                  "type": "struct Attestation.Organisation memory",
+                                  "value": "org"
+                                },
+                                "id": 160,
+                                "name": "Identifier",
+                                "src": "1632:3:0"
+                              }
+                            ],
+                            "id": 162,
+                            "name": "MemberAccess",
+                            "src": "1632:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "66616c7365",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "false"
+                            },
+                            "id": 163,
+                            "name": "Literal",
+                            "src": "1645:5:0"
+                          }
+                        ],
+                        "id": 164,
+                        "name": "Assignment",
+                        "src": "1632:18:0"
+                      }
+                    ],
+                    "id": 165,
+                    "name": "ExpressionStatement",
+                    "src": "1632:18:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "name",
+                              "referencedDeclaration": 27,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 158,
+                                  "type": "struct Attestation.Organisation memory",
+                                  "value": "org"
+                                },
+                                "id": 166,
+                                "name": "Identifier",
+                                "src": "1656:3:0"
+                              }
+                            ],
+                            "id": 168,
+                            "name": "MemberAccess",
+                            "src": "1656:8:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 150,
+                              "type": "string memory",
+                              "value": "name"
+                            },
+                            "id": 169,
+                            "name": "Identifier",
+                            "src": "1666:4:0"
+                          }
+                        ],
+                        "id": 170,
+                        "name": "Assignment",
+                        "src": "1656:14:0"
+                      }
+                    ],
+                    "id": 171,
+                    "name": "ExpressionStatement",
+                    "src": "1656:14:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "registrationNumber",
+                              "referencedDeclaration": 29,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 158,
+                                  "type": "struct Attestation.Organisation memory",
+                                  "value": "org"
+                                },
+                                "id": 172,
+                                "name": "Identifier",
+                                "src": "1676:3:0"
+                              }
+                            ],
+                            "id": 174,
+                            "name": "MemberAccess",
+                            "src": "1676:22:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 152,
+                              "type": "string memory",
+                              "value": "registrationNumber"
+                            },
+                            "id": 175,
+                            "name": "Identifier",
+                            "src": "1700:18:0"
+                          }
+                        ],
+                        "id": 176,
+                        "name": "Assignment",
+                        "src": "1676:42:0"
+                      }
+                    ],
+                    "id": 177,
+                    "name": "ExpressionStatement",
+                    "src": "1676:42:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "uportId",
+                              "referencedDeclaration": 31,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 158,
+                                  "type": "struct Attestation.Organisation memory",
+                                  "value": "org"
+                                },
+                                "id": 178,
+                                "name": "Identifier",
+                                "src": "1724:3:0"
+                              }
+                            ],
+                            "id": 180,
+                            "name": "MemberAccess",
+                            "src": "1724:11:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 148,
+                              "type": "string memory",
+                              "value": "uportId"
+                            },
+                            "id": 181,
+                            "name": "Identifier",
+                            "src": "1738:7:0"
+                          }
+                        ],
+                        "id": 182,
+                        "name": "Assignment",
+                        "src": "1724:21:0"
+                      }
+                    ],
+                    "id": 183,
+                    "name": "ExpressionStatement",
+                    "src": "1724:21:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "owner",
+                              "referencedDeclaration": 33,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 158,
+                                  "type": "struct Attestation.Organisation memory",
+                                  "value": "org"
+                                },
+                                "id": 184,
+                                "name": "Identifier",
+                                "src": "1751:3:0"
+                              }
+                            ],
+                            "id": 186,
+                            "name": "MemberAccess",
+                            "src": "1751:9:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 274,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 187,
+                                "name": "Identifier",
+                                "src": "1763:3:0"
+                              }
+                            ],
+                            "id": 188,
+                            "name": "MemberAccess",
+                            "src": "1763:10:0"
+                          }
+                        ],
+                        "id": 189,
+                        "name": "Assignment",
+                        "src": "1751:22:0"
+                      }
+                    ],
+                    "id": 190,
+                    "name": "ExpressionStatement",
+                    "src": "1751:22:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 155,
+                              "type": "uint256",
+                              "value": "orgIndex"
+                            },
+                            "id": 191,
+                            "name": "Identifier",
+                            "src": "1780:8:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "-",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "uint256",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_struct$_Organisation_$34_memory_ptr",
+                                          "typeString": "struct Attestation.Organisation memory"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "push",
+                                      "referencedDeclaration": null,
+                                      "type": "function (struct Attestation.Organisation storage ref) returns (uint256)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 6,
+                                          "type": "struct Attestation.Organisation storage ref[] storage ref",
+                                          "value": "orgs"
+                                        },
+                                        "id": 192,
+                                        "name": "Identifier",
+                                        "src": "1791:4:0"
+                                      }
+                                    ],
+                                    "id": 193,
+                                    "name": "MemberAccess",
+                                    "src": "1791:9:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 158,
+                                      "type": "struct Attestation.Organisation memory",
+                                      "value": "org"
+                                    },
+                                    "id": 194,
+                                    "name": "Identifier",
+                                    "src": "1801:3:0"
+                                  }
+                                ],
+                                "id": 195,
+                                "name": "FunctionCall",
+                                "src": "1791:14:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "31",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 1",
+                                  "value": "1"
+                                },
+                                "id": 196,
+                                "name": "Literal",
+                                "src": "1806:1:0"
+                              }
+                            ],
+                            "id": 197,
+                            "name": "BinaryOperation",
+                            "src": "1791:16:0"
+                          }
+                        ],
+                        "id": 198,
+                        "name": "Assignment",
+                        "src": "1780:27:0"
+                      }
+                    ],
+                    "id": 199,
+                    "name": "ExpressionStatement",
+                    "src": "1780:27:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 17,
+                              "type": "function (address,string memory,string memory)",
+                              "value": "OrganisationAdded"
+                            },
+                            "id": 200,
+                            "name": "Identifier",
+                            "src": "1814:17:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 274,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 201,
+                                "name": "Identifier",
+                                "src": "1832:3:0"
+                              }
+                            ],
+                            "id": 202,
+                            "name": "MemberAccess",
+                            "src": "1832:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 148,
+                              "type": "string memory",
+                              "value": "uportId"
+                            },
+                            "id": 203,
+                            "name": "Identifier",
+                            "src": "1844:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 150,
+                              "type": "string memory",
+                              "value": "name"
+                            },
+                            "id": 204,
+                            "name": "Identifier",
+                            "src": "1853:4:0"
+                          }
+                        ],
+                        "id": 205,
+                        "name": "FunctionCall",
+                        "src": "1814:44:0"
+                      }
+                    ],
+                    "id": 206,
+                    "name": "ExpressionStatement",
+                    "src": "1814:44:0"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 156
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 155,
+                          "type": "uint256",
+                          "value": "orgIndex"
+                        },
+                        "id": 207,
+                        "name": "Identifier",
+                        "src": "1872:8:0"
+                      }
+                    ],
+                    "id": 208,
+                    "name": "Return",
+                    "src": "1865:15:0"
+                  }
+                ],
+                "id": 209,
+                "name": "Block",
+                "src": "1552:334:0"
+              }
+            ],
+            "id": 210,
+            "name": "FunctionDefinition",
+            "src": "1442:444:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "verifyClaim",
+              "payable": false,
+              "scope": 262,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "claimIndex",
+                      "scope": 243,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 211,
+                        "name": "ElementaryTypeName",
+                        "src": "1911:4:0"
+                      }
+                    ],
+                    "id": 212,
+                    "name": "VariableDeclaration",
+                    "src": "1911:15:0"
+                  }
+                ],
+                "id": 213,
+                "name": "ParameterList",
+                "src": "1910:17:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 214,
+                "name": "ParameterList",
+                "src": "1935:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        216
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "claim",
+                          "scope": 243,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "struct Attestation.Claim storage pointer",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Claim",
+                              "referencedDeclaration": 51,
+                              "type": "struct Attestation.Claim storage pointer"
+                            },
+                            "id": 215,
+                            "name": "UserDefinedTypeName",
+                            "src": "1941:5:0"
+                          }
+                        ],
+                        "id": 216,
+                        "name": "VariableDeclaration",
+                        "src": "1941:11:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "struct Attestation.Claim storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9,
+                              "type": "struct Attestation.Claim storage ref[] storage ref",
+                              "value": "claims"
+                            },
+                            "id": 217,
+                            "name": "Identifier",
+                            "src": "1955:6:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 212,
+                              "type": "uint256",
+                              "value": "claimIndex"
+                            },
+                            "id": 218,
+                            "name": "Identifier",
+                            "src": "1962:10:0"
+                          }
+                        ],
+                        "id": 219,
+                        "name": "IndexAccess",
+                        "src": "1955:18:0"
+                      }
+                    ],
+                    "id": 220,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1941:32:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 277,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 221,
+                            "name": "Identifier",
+                            "src": "1980:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 274,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 222,
+                                    "name": "Identifier",
+                                    "src": "1988:3:0"
+                                  }
+                                ],
+                                "id": 223,
+                                "name": "MemberAccess",
+                                "src": "1988:10:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "organisation",
+                                  "referencedDeclaration": 38,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 216,
+                                      "type": "struct Attestation.Claim storage pointer",
+                                      "value": "claim"
+                                    },
+                                    "id": 224,
+                                    "name": "Identifier",
+                                    "src": "2002:5:0"
+                                  }
+                                ],
+                                "id": 225,
+                                "name": "MemberAccess",
+                                "src": "2002:18:0"
+                              }
+                            ],
+                            "id": 226,
+                            "name": "BinaryOperation",
+                            "src": "1988:32:0"
+                          }
+                        ],
+                        "id": 227,
+                        "name": "FunctionCall",
+                        "src": "1980:41:0"
+                      }
+                    ],
+                    "id": 228,
+                    "name": "ExpressionStatement",
+                    "src": "1980:41:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 277,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 229,
+                            "name": "Identifier",
+                            "src": "2027:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "verified",
+                                  "referencedDeclaration": 40,
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 216,
+                                      "type": "struct Attestation.Claim storage pointer",
+                                      "value": "claim"
+                                    },
+                                    "id": 230,
+                                    "name": "Identifier",
+                                    "src": "2035:5:0"
+                                  }
+                                ],
+                                "id": 231,
+                                "name": "MemberAccess",
+                                "src": "2035:14:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "66616c7365",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "false"
+                                },
+                                "id": 232,
+                                "name": "Literal",
+                                "src": "2053:5:0"
+                              }
+                            ],
+                            "id": 233,
+                            "name": "BinaryOperation",
+                            "src": "2035:23:0"
+                          }
+                        ],
+                        "id": 234,
+                        "name": "FunctionCall",
+                        "src": "2027:32:0"
+                      }
+                    ],
+                    "id": 235,
+                    "name": "ExpressionStatement",
+                    "src": "2027:32:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "verified",
+                              "referencedDeclaration": 40,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 216,
+                                  "type": "struct Attestation.Claim storage pointer",
+                                  "value": "claim"
+                                },
+                                "id": 236,
+                                "name": "Identifier",
+                                "src": "2066:5:0"
+                              }
+                            ],
+                            "id": 238,
+                            "name": "MemberAccess",
+                            "src": "2066:14:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 239,
+                            "name": "Literal",
+                            "src": "2083:4:0"
+                          }
+                        ],
+                        "id": 240,
+                        "name": "Assignment",
+                        "src": "2066:21:0"
+                      }
+                    ],
+                    "id": 241,
+                    "name": "ExpressionStatement",
+                    "src": "2066:21:0"
+                  }
+                ],
+                "id": 242,
+                "name": "Block",
+                "src": "1935:157:0"
+              }
+            ],
+            "id": 243,
+            "name": "FunctionDefinition",
+            "src": "1890:202:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getOrgsCount",
+              "payable": false,
+              "scope": 262,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 244,
+                "name": "ParameterList",
+                "src": "2503:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "orgsCount",
+                      "scope": 252,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 245,
+                        "name": "ElementaryTypeName",
+                        "src": "2530:4:0"
+                      }
+                    ],
+                    "id": 246,
+                    "name": "VariableDeclaration",
+                    "src": "2530:14:0"
+                  }
+                ],
+                "id": 247,
+                "name": "ParameterList",
+                "src": "2529:16:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 247
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "length",
+                          "referencedDeclaration": null,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 6,
+                              "type": "struct Attestation.Organisation storage ref[] storage ref",
+                              "value": "orgs"
+                            },
+                            "id": 248,
+                            "name": "Identifier",
+                            "src": "2559:4:0"
+                          }
+                        ],
+                        "id": 249,
+                        "name": "MemberAccess",
+                        "src": "2559:11:0"
+                      }
+                    ],
+                    "id": 250,
+                    "name": "Return",
+                    "src": "2552:18:0"
+                  }
+                ],
+                "id": 251,
+                "name": "Block",
+                "src": "2546:29:0"
+              }
+            ],
+            "id": 252,
+            "name": "FunctionDefinition",
+            "src": "2482:93:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getClaimsCount",
+              "payable": false,
+              "scope": 262,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 253,
+                "name": "ParameterList",
+                "src": "2602:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "claimsCount",
+                      "scope": 261,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 254,
+                        "name": "ElementaryTypeName",
+                        "src": "2629:4:0"
+                      }
+                    ],
+                    "id": 255,
+                    "name": "VariableDeclaration",
+                    "src": "2629:16:0"
+                  }
+                ],
+                "id": 256,
+                "name": "ParameterList",
+                "src": "2628:18:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 256
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "length",
+                          "referencedDeclaration": null,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9,
+                              "type": "struct Attestation.Claim storage ref[] storage ref",
+                              "value": "claims"
+                            },
+                            "id": 257,
+                            "name": "Identifier",
+                            "src": "2660:6:0"
+                          }
+                        ],
+                        "id": 258,
+                        "name": "MemberAccess",
+                        "src": "2660:13:0"
+                      }
+                    ],
+                    "id": 259,
+                    "name": "Return",
+                    "src": "2653:20:0"
+                  }
+                ],
+                "id": 260,
+                "name": "Block",
+                "src": "2647:31:0"
+              }
+            ],
+            "id": 261,
+            "name": "FunctionDefinition",
+            "src": "2579:99:0"
+          }
+        ],
+        "id": 262,
+        "name": "ContractDefinition",
+        "src": "26:2654:0"
+      }
+    ],
+    "id": 263,
+    "name": "SourceUnit",
+    "src": "0:2681:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xc4a24e29985031c5f0a7a518167c0b91f7d4638d"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xbaaa2a3237035a2c7fa2a33c76b44a8c6fe18e87"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-31T15:12:23.737Z"
+}
