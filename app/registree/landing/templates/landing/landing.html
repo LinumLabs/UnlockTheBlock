@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<!-- <div class="row">
+    <h1>Enroll Students</h1>
+    <h3>Please upload your csv file here. It needs to be in the format</h3>
+    <h3>course address | student address </h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <input type="hidden" name="type" value="enroll">
+        <button type="submit">Upload</button>
+    </form>
+</div> -->
+
+{% if messages %}
+<div class="row">
+    <div class="message">
+            {% for message in messages %}
+                <h2>{{ message }}</h2>
+            {% endfor %}
+
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <h1>Upload Marks</h1>
+    <h3>Please upload your csv file here. It needs to be in the format: course address | student address | mark </h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <input type="hidden" name="type" value="marks">
+        <button type="submit" class="btn">Upload</button>
+    </form>
+</div>
+{% endblock %}
