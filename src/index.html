@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>H2ICO token</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">H2ICOToken</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      
+      <div class="row">
+
+        <!--Set the token address-->
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Set Token Address</h3>
+            </div>
+            <div class="panel-body">
+
+              <h5>sets the address ofthe token controlled by this contract </h5>
+              <input type="text" class="form-control" id="tokenAddress" placeholder="Please type token address" />
+              <b/>
+              <div></div>
+              <button class="btn btn-primary" id="setTokenAddressButton" type="button">Set Address</button>
+              
+            </div>
+          </div>
+        </div>
+        <!--Generate Tokens-->
+        <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Generate Tokens</h3>
+              </div>
+              <div class="panel-body">
+  
+                <h5>TODO: no description</h5>
+                <button class="btn btn-primary btn-block" id="generateTokensButton" type="button">Generate Tokens</button>
+                
+              </div>
+            </div>
+          </div>
+      </div>
+
+      
+
+      
+
+      
+        <div class="row">
+
+          <!--getAndSetWaterSupplyforUsers-->
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Water Token Allocations Limit</h3>
+              </div>
+              <div class="panel-body">
+  
+                <h5>Set Water Limit</h5>
+                <input type="text" class="form-control" id="waterLimitInput" placeholder="Please input the limit on the number of tokens that can be allocated to users" />
+                <button class="btn btn-primary" id="setWaterLimitButton" type="button">Set</button>
+                
+                <h5>Current Water Limit</h5>
+                <div id="currentWaterLimit">- - - -</div>
+
+                <h5>Total Valid Users</h5>
+                <div id="totalValidUsers">- - - -</div>
+              </div>
+            </div>
+          </div>
+          <!--Validated Users-->
+          <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">User Management</h3>
+                </div>
+                <div class="panel-body">
+    
+                  <h5>Add users you have validated </h5>
+
+                  <input type="text" class="form-control" id="validateUserTextBox" placeholder="Address of user you have validated" />
+                  <button class="btn btn-primary btn-block" id="addValidatedUserButton" type="button">Add User</button>
+
+                  <h5>Remove users that you can allocate to: </h5>
+                  <input type="text" class="form-control" id="removeUserTextBox" placeholder="Address of user to remove" />
+                  <button class="btn btn-primary btn-block" id="removeUserButton" type="button">Remove User</button>
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+      
+
+        <div class="row">
+
+
+            <!--Withdraw alloted tokens-->
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Withdraw Allotted Tokens</h3>
+                </div>
+                <div class="panel-body">
+    
+                  <h5>Withdraw Tokens </h5>
+                  <button class="btn btn-primary" id="withDrawTokensButton" type="button">Withdraw Tokens</button>
+
+                  <h5>Check the eligibility to withdraw Tokens </h5>
+                  <input type="text" class="form-control" id="checkAdressIfCanWithdrawInput" placeholder="Check if address can withdraw tokens" />
+                  
+                  <button class="btn btn-primary" id="checkAddressIfCanWithdrawButton" type="button">Check</button>
+                  
+                 
+                </div>
+              </div>
+            </div>
+            <!--View your current tokens-->
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">See your Held Tokens balances/expiration date</h3>
+                  </div>
+                  <div class="panel-body">
+      
+                    <h5>View Current Token Balance </h5>
+  
+                    <input type="text" class="form-control" id="currentUserTokenBalanceBox" placeholder="Address of user whose balance you want to check" />
+                    <button class="btn btn-primary btn-block" id="currentUserTokenBalanceButton" type="button">Check Balance</button>
+  
+                
+                  </div>
+                </div>
+              </div>
+          </div>
+        
+    
+
+     
+
+
+      <div id="petsRow" class="row">
+        <div class="col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Your Wallet</h3>
+            </div>
+            <div class="panel-body">
+              <h4>Balance</h4>
+              <strong>Balance</strong>: <span id="TTBalance"></span> TT<br/><br/>
+              <h4>Transfer</h4>
+              <input type="text" class="form-control" id="TTTransferAddress" placeholder="Address" />
+              <input type="text" class="form-control" id="TTTransferAmount" placeholder="Amount" />
+              <button class="btn btn-primary" id="transferButton" type="button">Transfer</button>
+              <h4>Increase Total Amount</h4>
+              <input type="text" class="form-control" id="IncreaseAmount" placeholder="Amount" />
+              <button class="btn btn-primary" id="IncreaseButton" type="button">Increase</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
