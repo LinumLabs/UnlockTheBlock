@@ -1,0 +1,353 @@
+<head>
+    <link href="assets/css/pace-loader.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>blockPoll</title>
+    <!--Responsive scaling-->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' name='viewport'/>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/paper-kit.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet"/>
+
+    <!-- overide CSS -->
+    <link href="assets/css/overide.css" rel="stylesheet"/>
+    <link href="assets/css/paper-kit-overide.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+          rel="stylesheet">
+
+
+    <!-- Other -->
+    <link href="assets/css/animate.css" rel="stylesheet"/>
+    <link href="assets/css/timeline.css" rel="stylesheet"/>
+    <link href="assets/css/hover.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+{{> sAlert}}
+{{> modal}}
+<nav class="navbar navbar-toggleable-md fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container animated fadeInDown">
+        <div class="navbar-translate">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+            <a class="navbar-brand hvr-growfast" href="#top">BlockPoll</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav" id="top-menu">
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                    <a href="#about" class="nav-link"><i
+                            class="icon-question nc-navlinks"></i> About</a>
+                </li>
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                    <a href="#find" class="nav-link"><i
+                            class="icon-magnifier nc-navlinks"></i> Find</a>
+                </li>
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                    <a href="#vote" class="nav-link"><i
+                            class="icon-people nc-navlinks"></i> Vote</a>
+                </li>
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                    <a href="#create" class="nav-link"><i
+                            class="icon-note nc-navlinks"></i>
+                        <nobr>Create</nobr>
+                    </a>
+                </li>
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                    <a href="#contact" class="nav-link nc-navlinks"><i
+                            class="icon-bubble"></i> Contact</a>
+                </li>
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                    <a href="#contact" class="nav-link"><i
+                            class="icon-social-github nc-navlinks"></i> Contribute</a>
+                </li>
+                <li class="nav-item text-center my-lg-auto hvr-growfast">
+                        <a  class="nav-link">
+                            <i class="icon-login nc-navlinks"></i> Account {{> loginButtons}} </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+
+    <div class="page-header clickThrough section-dark">
+        <!--partical canvas background-->
+        <canvas class="heading-canvas hidden-sm-down" id="c"></canvas>
+        <div class="filter"></div>
+        <div class="content-center">
+            <div class="container" style="margin-bottom: 3.5em">
+                <div class="title-brand">
+                    <h1 class="presentation-title wow bounceIn">BLOCKPOLL</h1>
+                    <!--<div class="fog-low">-->
+                    <!--<img src="assets/img/fog-low.png" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="fog-low right">-->
+                    <!--<img src="assets/img/fog-low.png" alt="">-->
+                    <!--</div>-->
+                </div>
+
+                <h2 style="margin: 0" class="presentation-subtitle text-center wow fadeIn">Immutable Elections on the Ethereum
+                    Blockchain</h2>
+            </div>
+        </div>
+    </div>
+    <a href="#about" class="scroll-down hidden-sm-down" address="true"> </a>
+
+    <div class="main">
+        <!--What is blockpoll-->
+        <div class="section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-10 offset-md-1 wow fadeIn" data-wow-offset="20">
+                        <h2 id="about" class="title">blockPoll Mission Statement</h2>
+                        <h5 class="description text-justify">
+                            blockPoll is a pseudo-anonymous, online, blockchain-based voting tool, used to facilitate
+                            organizational-based proxy voting and polling mechanisms for a wide array of uses.
+                        </h5>
+                        <br>
+                        <a href="https://github.com/when-moon/blockPoll" target="_blank" class="hvr-growfast btn btn-primary btn-lg button-box">
+                             View on Github <i class="fa fa-2x fa-github-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Key points-->
+        <div class="section  section-gray">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-10 offset-md-1 wow fadeIn">
+                        <h2 class="title">Technology Key Points</h2>
+                        <!--Row 1-->
+                        <div class="row text-center">
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.0s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-danger">
+                                        <i class="icon-globe-alt"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Decentralised</h4>
+                                        <p class="description">Each voting contract is deployed on the public
+                                            chain. Here, Ethereum’s PoW consensus
+                                            algorithm ensure that all issued contracts are immutable and secure.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#decentralized" target="_blank"
+                                           class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-primary">
+                                        <i class="icon-notebook"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Smart Contracts</h4>
+                                        <p>Once deployed, each smart contract executes and records all votes
+                                            autonomously,
+                                            relegating itself from the need of a central authorizing or tallying
+                                            committee.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#future-proof" target="_blank"
+                                           class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.4s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-warning">
+                                        <i class="icon-user-unfollow"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Immutability</h4>
+                                        <p>
+                                            The immutable nature of the blockchain ensures that once created, no voting
+                                            contract can be altered or tampered with in any
+                                            way, providing peace of mind to both voters and candidates.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#immutability" target="_blank"
+                                           class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.6s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-success">
+                                        <i class="icon-book-open"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Auditability</h4>
+                                        <p>
+                                            Each smart contract exists on the public chain. This allows voters to see
+                                            that their votes have been captured correctly without
+                                            displaying to other voters who they have voted for.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#auditability-and-transparency"
+                                           target="_blank" class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="wow fadeIn">
+                        <!--row 2-->
+                        <div class="row text-center">
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.0s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-facebook">
+                                        <i class="icon-layers"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Ease of Use</h4>
+                                        <p class="description">
+                                            blockPoll’s informative user-interface and well documented Github page
+                                            provides candidates, voters and administrators (registrars)
+                                            with the tools needed to leverage the strength of Ethereum’s public chain.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#how-to-use-" target="_blank"
+                                           class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-reddit">
+                                        <i class="icon-lock"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Security</h4>
+                                        <p>
+                                            When used correctly, blockPoll allows users to securely interact with the
+                                            blockchain, and cast or view their votes in a safe
+                                            and anonymous manner, controlling and restricting administrative access to
+                                            a select few.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll/blob/master/README.md#administrator-"
+                                           target="_blank" class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.4s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-success">
+                                        <i class="icon-rocket"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Scalability
+                                        </h4>
+                                        <p>Built on the Ethereum network, blockPoll’s scalability is aligned with that
+                                            of
+                                            Ethereum’s. As the network evolves, scaling solutions (Sharding etc.) will
+                                            increase the speed with which Ethereum transactions are processed.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#scalability" target="_blank"
+                                           class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInUp" data-wow-delay="0.6s" data-wow-offset="20">
+                                <div class="info">
+                                    <div class="icon icon-sucess">
+                                        <i class="icon-heart"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Opensource</h4>
+                                        <p>As an opensource project, blockPoll is entirely free to use. With no servers
+                                            governing the operation of the voting itself, blockPoll provides a
+                                            financially
+                                            friendly alternative to already existing purchasable solutions.
+                                        </p>
+                                        <a href="https://github.com/when-moon/blockPoll#cost" target="_blank"
+                                           class="btn btn-link btn-info">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Find Elections-->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 wow fadeIn" data-wow-offset="20">
+                        {{> findElection}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Vote in Elections-->
+        <div class="section  section-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 wow fadeIn" data-wow-offset="20">
+                        {{> vote}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Find Elections-->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 wow fadeIn" data-wow-offset="20">
+                        {{> createElection}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Share this page-->
+        <div class="section  section-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-center wow fadeIn" data-wow-offset="20">
+                        <h2 id="contact" class="title">Join the blockPoll Community
+                        </h2>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col wow fadeInUp" data-wow-delay="0.0s">
+                        <button id="Slack" class="btn btn-slack button-box"><i class="fa fa-slack"></i> Slack
+                        </button>
+                        <button id="twitter" class="btn btn-twitter button-box"><i class="fa fa-twitter"></i>
+                            Twitter
+                        </button>
+                        <button id="Reddit" class="btn btn-reddit button-box"><i class="fa fa-reddit-alien"></i>
+                            Reddit
+                        </button>
+                        <button id="facebooklink" class="btn btn-telegram button-box"><i
+                                class="fa fa-telegram"></i> Telegram
+                        </button>
+                        <button id="facebooklink" class="btn btn-facebook button-box"><i
+                                class="fa fa-facebook-square"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Main-->
+    <a id="back-top" href="#top"><i class="fa fa-chevron-up hidden-sm-down"></i></a>
+</div>
+</body>
+
+
