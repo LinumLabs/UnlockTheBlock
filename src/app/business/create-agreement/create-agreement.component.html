@@ -1,0 +1,57 @@
+<div class="viewContainer">
+    <h4 class="viewHeader">Set up Partnership Agreement</h4>
+    <form class="basicForm">
+      <mat-form-field [floatLabel]="auto">
+        <input matInput placeholder="Company 1" required [(ngModel)]="agreement.owner" name="company1" value="Weirdly Colourful Pants">
+      </mat-form-field>
+  
+      <mat-form-field [floatLabel]="auto">
+        <input matInput placeholder="Company 2" required [(ngModel)]="agreement.signer" name="company2">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-select [(ngModel)]="agreement.direction" name="direction">
+            <mat-option *ngFor="let dir of directions" [value]="dir">
+                {{ dir.viewValue }}
+              </mat-option>
+        </mat-select>
+        <mat-placeholder><b>Relationship</b> </mat-placeholder>
+      </mat-form-field>
+      
+      <mat-form-field [floatLabel]="auto" class="row">
+        <div class="row col-lg-12 col-sm-12 col-md-12">     
+          <div class="col col-lg-5">
+            <label for="left" text="Ratio:">Ratio</label>
+          </div>
+          <div class="col col-lg-3">
+              
+                <input matInput min="1" maxlength="2" required [(ngModel)]="agreement.left" name="left" type="number">
+              <!-- </mat-form-field> -->
+          </div>
+          <div class="col col-lg-1"><b style="margin-top:40px">:</b>
+          </div>
+          <div class="col col-lg-3">
+              <!-- <mat-form-field [floatLabel]="auto"> -->
+                <input matInput min="1" maxlength="2" required [(ngModel)]="agreement.right" name="right" type="number">
+              <!-- </mat-form-field> -->
+          </div>
+          
+        </div>
+      </mat-form-field>
+
+      <div>
+          <mat-checkbox [(ngModel)]="agreement.canPort"  name="canPort" >  Would you like to allow portability (points exchange)?</mat-checkbox>
+        <!-- <mat-checkbox matInput  formControlName="hideRequired" name="canPort">Hide required marker</mat-checkbox> -->
+      </div>
+
+      
+
+      <div class="formButtonContainer">
+        <button mat-button (click)="openSnackBar('Transaction', 'Successful!')" style="color:white">Submit</button>
+      </div>
+      
+    </form>
+  
+    
+  
+  </div>

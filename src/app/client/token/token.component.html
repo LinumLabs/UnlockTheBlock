@@ -1,0 +1,44 @@
+<div class="viewContainer">
+  <div class="headerCardContainer row">
+    <div class="col-md-6">
+      <h4>Jacques Nakamoto</h4>
+      Loyalty Programs
+    </div>
+    <div class="col-md-6">
+      <h4>Weirdly Colourful Pants</h4>
+      Bootlegger: 500 stitches
+    </div>
+  </div>
+
+
+  <form class="basicForm">
+    <div class="radio-group">
+      <input type="radio" id="option-one" name="selector" checked [value]="1"  [(ngModel)]="selection">
+      <label for="option-one">Redeem</label>
+      <input type="radio" id="option-two" name="selector" [value]="2"  [(ngModel)]="selection">
+      <label for="option-two">Redeem at Partner</label>
+      <input type="radio" id="option-three" name="selector" [value]="3"  [(ngModel)]="selection">
+      <label for="option-three">Port to Partner</label>
+    </div>
+
+    <mat-form-field [floatLabel]="auto">
+      <input matInput placeholder="Amount" required name="amount">
+      <span matPrefix>Stitches&nbsp;</span>
+      <mat-error *ngIf="amount">No no</mat-error>
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="auto" *ngIf="selection>=2">
+      <mat-select placeholder="Partner">
+        <mat-option *ngFor="let partner of partners" [value]="partner.address">
+          {{ partner.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="formButtonContainer">
+      <button mat-button (click)="openSnackBar('Transaction', 'Successful!')" style="color:white">Submit</button>
+    </div>
+
+  </form>
+
+</div>
