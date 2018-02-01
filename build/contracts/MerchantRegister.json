@@ -1,0 +1,1205 @@
+{
+  "contractName": "MerchantRegister",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMerchantId",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMerchantActive",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_merchantId",
+          "type": "string"
+        },
+        {
+          "name": "_active",
+          "type": "bool"
+        },
+        {
+          "name": "_ipfsHash",
+          "type": "string"
+        }
+      ],
+      "name": "createMerchant",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "merchants",
+      "outputs": [
+        {
+          "name": "merchantId",
+          "type": "string"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "ipfsHash",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMerchantIpsfHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506108168061005e6000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063044bcc48146100725780630c2b7ee314610100578063503ddce31461012d57806392c8823b146101d8578063ed7862d614610325575b600080fd5b341561007d57600080fd5b6100856103b3565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100c55780820151818401526020810190506100aa565b50505050905090810190601f1680156100f25780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561010b57600080fd5b61011361047a565b604051808215151515815260200191505060405180910390f35b341561013857600080fd5b6101d6600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091908035151590602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506104b0565b005b34156101e357600080fd5b6101f96004808035906020019091905050610559565b604051808060200184151515158152602001806020018381038352868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102905780601f1061026557610100808354040283529160200191610290565b820191906000526020600020905b81548152906001019060200180831161027357829003601f168201915b50508381038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156103135780601f106102e857610100808354040283529160200191610313565b820191906000526020600020905b8154815290600101906020018083116102f657829003601f168201915b50509550505050505060405180910390f35b341561033057600080fd5b61033861059d565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561037857808201518184015260208101905061035d565b50505050905090810190601f1680156103a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6103bb610664565b600160008154811015156103cb57fe5b90600052602060002090600302016000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104705780601f1061044557610100808354040283529160200191610470565b820191906000526020600020905b81548152906001019060200180831161045357829003601f168201915b5050505050905090565b60006001600081548110151561048c57fe5b906000526020600020906003020160010160009054906101000a900460ff16905090565b600180548060010182816104c49190610678565b91600052602060002090600302016000606060405190810160405280878152602001861515815260200185815250909190915060008201518160000190805190602001906105139291906106aa565b5060208201518160010160006101000a81548160ff02191690831515021790555060408201518160020190805190602001906105509291906106aa565b50505050505050565b60018181548110151561056857fe5b906000526020600020906003020160009150905080600001908060010160009054906101000a900460ff169080600201905083565b6105a5610664565b600160008154811015156105b557fe5b90600052602060002090600302016002018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561065a5780601f1061062f5761010080835404028352916020019161065a565b820191906000526020600020905b81548152906001019060200180831161063d57829003601f168201915b5050505050905090565b602060405190810160405280600081525090565b8154818355818115116106a5576003028160030283600052602060002091820191016106a4919061072a565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106106eb57805160ff1916838001178555610719565b82800160010185558215610719579182015b828111156107185782518255916020019190600101906106fd565b5b509050610726919061077d565b5090565b61077a91905b80821115610776576000808201600061074991906107a2565b6001820160006101000a81549060ff021916905560028201600061076d91906107a2565b50600301610730565b5090565b90565b61079f91905b8082111561079b576000816000905550600101610783565b5090565b90565b50805460018160011615610100020316600290046000825580601f106107c857506107e7565b601f0160209004906000526020600020908101906107e6919061077d565b5b505600a165627a7a723058209ec52600d5a7c152de05ca9b7dd910cf7c86c98c601e1e9cca9361bf76b69c3a0029",
+  "deployedBytecode": "0x60606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063044bcc48146100725780630c2b7ee314610100578063503ddce31461012d57806392c8823b146101d8578063ed7862d614610325575b600080fd5b341561007d57600080fd5b6100856103b3565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100c55780820151818401526020810190506100aa565b50505050905090810190601f1680156100f25780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561010b57600080fd5b61011361047a565b604051808215151515815260200191505060405180910390f35b341561013857600080fd5b6101d6600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091908035151590602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506104b0565b005b34156101e357600080fd5b6101f96004808035906020019091905050610559565b604051808060200184151515158152602001806020018381038352868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102905780601f1061026557610100808354040283529160200191610290565b820191906000526020600020905b81548152906001019060200180831161027357829003601f168201915b50508381038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156103135780601f106102e857610100808354040283529160200191610313565b820191906000526020600020905b8154815290600101906020018083116102f657829003601f168201915b50509550505050505060405180910390f35b341561033057600080fd5b61033861059d565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561037857808201518184015260208101905061035d565b50505050905090810190601f1680156103a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6103bb610664565b600160008154811015156103cb57fe5b90600052602060002090600302016000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104705780601f1061044557610100808354040283529160200191610470565b820191906000526020600020905b81548152906001019060200180831161045357829003601f168201915b5050505050905090565b60006001600081548110151561048c57fe5b906000526020600020906003020160010160009054906101000a900460ff16905090565b600180548060010182816104c49190610678565b91600052602060002090600302016000606060405190810160405280878152602001861515815260200185815250909190915060008201518160000190805190602001906105139291906106aa565b5060208201518160010160006101000a81548160ff02191690831515021790555060408201518160020190805190602001906105509291906106aa565b50505050505050565b60018181548110151561056857fe5b906000526020600020906003020160009150905080600001908060010160009054906101000a900460ff169080600201905083565b6105a5610664565b600160008154811015156105b557fe5b90600052602060002090600302016002018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561065a5780601f1061062f5761010080835404028352916020019161065a565b820191906000526020600020905b81548152906001019060200180831161063d57829003601f168201915b5050505050905090565b602060405190810160405280600081525090565b8154818355818115116106a5576003028160030283600052602060002091820191016106a4919061072a565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106106eb57805160ff1916838001178555610719565b82800160010185558215610719579182015b828111156107185782518255916020019190600101906106fd565b5b509050610726919061077d565b5090565b61077a91905b80821115610776576000808201600061074991906107a2565b6001820160006101000a81549060ff021916905560028201600061076d91906107a2565b50600301610730565b5090565b90565b61079f91905b8082111561079b576000816000905550600101610783565b5090565b90565b50805460018160011615610100020316600290046000825580601f106107c857506107e7565b601f0160209004906000526020600020908101906107e6919061077d565b5b505600a165627a7a723058209ec52600d5a7c152de05ca9b7dd910cf7c86c98c601e1e9cca9361bf76b69c3a0029",
+  "sourceMap": "26:837:1:-;;;224:72;;;;;;;;279:10;269:7;;:20;;;;;;;;;;;;;;;;;;26:837;;;;;;",
+  "deployedSourceMap": "26:837:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;526:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;639:105:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;303:216;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;186:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;750:111;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;526:107:1;576:6;;:::i;:::-;602:9;612:1;602:12;;;;;;;;;;;;;;;;;;;;:23;;594:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;526:107;:::o;639:105::-;693:4;717:9;727:1;717:12;;;;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;709:28;;639:105;:::o;303:216::-;448:9;:57;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;463:41;;;;;;;;;472:11;463:41;;;;485:7;463:41;;;;;;494:9;463:41;;;448:57;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;303:216;;;:::o;186:27::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;750:111::-;806:6;;:::i;:::-;832:9;842:1;832:12;;;;;;;;;;;;;;;;;;;;:21;;824:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;750:111;:::o;26:837::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract MerchantRegister {\n\n    address creator;\n\n    struct Merchant {\n        string merchantId;\n\t\tbool active;        \n        string ipfsHash;\n    }\n\n\n    Merchant[] public merchants;\n    \n    function MerchantRegister() public {\n        creator = msg.sender;\n    }\n\n\n    function createMerchant(string _merchantId, bool _active, string _ipfsHash) public {\n        //merchants.push(Merchant(_merchantId));   \n        merchants.push(Merchant(_merchantId, _active, _ipfsHash));       \n    }\n\n\n    function getMerchantId() public constant returns (string) {\n        return (merchants[0].merchantId);\n    }\n\n    function getMerchantActive() public constant returns (bool) {\n        return (merchants[0].active);\n    }\n\n    function getMerchantIpsfHash() public constant returns (string) {\n        return (merchants[0].ipfsHash);\n    }\n}",
+  "sourcePath": "/mnt/d/unlock-the-block/DCentral/contracts/MerchantRegister.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/mnt/d/unlock-the-block/DCentral/contracts/MerchantRegister.sol",
+      "exportedSymbols": {
+        "MerchantRegister": [
+          292
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 214,
+        "name": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            292
+          ],
+          "name": "MerchantRegister",
+          "scope": 293
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "creator",
+              "scope": 292,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 215,
+                "name": "ElementaryTypeName",
+                "src": "59:7:1"
+              }
+            ],
+            "id": 216,
+            "name": "VariableDeclaration",
+            "src": "59:15:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "MerchantRegister.Merchant",
+              "name": "Merchant",
+              "scope": 292,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "merchantId",
+                  "scope": 223,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 217,
+                    "name": "ElementaryTypeName",
+                    "src": "107:6:1"
+                  }
+                ],
+                "id": 218,
+                "name": "VariableDeclaration",
+                "src": "107:17:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "active",
+                  "scope": 223,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 219,
+                    "name": "ElementaryTypeName",
+                    "src": "128:4:1"
+                  }
+                ],
+                "id": 220,
+                "name": "VariableDeclaration",
+                "src": "128:11:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "ipfsHash",
+                  "scope": 223,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 221,
+                    "name": "ElementaryTypeName",
+                    "src": "157:6:1"
+                  }
+                ],
+                "id": 222,
+                "name": "VariableDeclaration",
+                "src": "157:15:1"
+              }
+            ],
+            "id": 223,
+            "name": "StructDefinition",
+            "src": "81:98:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "merchants",
+              "scope": 292,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct MerchantRegister.Merchant storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct MerchantRegister.Merchant storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Merchant",
+                      "referencedDeclaration": 223,
+                      "type": "struct MerchantRegister.Merchant storage pointer"
+                    },
+                    "id": 224,
+                    "name": "UserDefinedTypeName",
+                    "src": "186:8:1"
+                  }
+                ],
+                "id": 225,
+                "name": "ArrayTypeName",
+                "src": "186:10:1"
+              }
+            ],
+            "id": 226,
+            "name": "VariableDeclaration",
+            "src": "186:27:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "MerchantRegister",
+              "payable": false,
+              "scope": 292,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 227,
+                "name": "ParameterList",
+                "src": "249:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 228,
+                "name": "ParameterList",
+                "src": "259:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 216,
+                              "type": "address",
+                              "value": "creator"
+                            },
+                            "id": 229,
+                            "name": "Identifier",
+                            "src": "269:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 445,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 230,
+                                "name": "Identifier",
+                                "src": "279:3:1"
+                              }
+                            ],
+                            "id": 231,
+                            "name": "MemberAccess",
+                            "src": "279:10:1"
+                          }
+                        ],
+                        "id": 232,
+                        "name": "Assignment",
+                        "src": "269:20:1"
+                      }
+                    ],
+                    "id": 233,
+                    "name": "ExpressionStatement",
+                    "src": "269:20:1"
+                  }
+                ],
+                "id": 234,
+                "name": "Block",
+                "src": "259:37:1"
+              }
+            ],
+            "id": 235,
+            "name": "FunctionDefinition",
+            "src": "224:72:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "createMerchant",
+              "payable": false,
+              "scope": 292,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_merchantId",
+                      "scope": 255,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 236,
+                        "name": "ElementaryTypeName",
+                        "src": "327:6:1"
+                      }
+                    ],
+                    "id": 237,
+                    "name": "VariableDeclaration",
+                    "src": "327:18:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_active",
+                      "scope": 255,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 238,
+                        "name": "ElementaryTypeName",
+                        "src": "347:4:1"
+                      }
+                    ],
+                    "id": 239,
+                    "name": "VariableDeclaration",
+                    "src": "347:12:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsHash",
+                      "scope": 255,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 240,
+                        "name": "ElementaryTypeName",
+                        "src": "361:6:1"
+                      }
+                    ],
+                    "id": 241,
+                    "name": "VariableDeclaration",
+                    "src": "361:16:1"
+                  }
+                ],
+                "id": 242,
+                "name": "ParameterList",
+                "src": "326:52:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 243,
+                "name": "ParameterList",
+                "src": "386:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Merchant_$223_memory",
+                                  "typeString": "struct MerchantRegister.Merchant memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct MerchantRegister.Merchant storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 226,
+                                  "type": "struct MerchantRegister.Merchant storage ref[] storage ref",
+                                  "value": "merchants"
+                                },
+                                "id": 244,
+                                "name": "Identifier",
+                                "src": "448:9:1"
+                              }
+                            ],
+                            "id": 246,
+                            "name": "MemberAccess",
+                            "src": "448:14:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct MerchantRegister.Merchant memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_bool",
+                                      "typeString": "bool"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 223,
+                                  "type": "type(struct MerchantRegister.Merchant storage pointer)",
+                                  "value": "Merchant"
+                                },
+                                "id": 247,
+                                "name": "Identifier",
+                                "src": "463:8:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 237,
+                                  "type": "string memory",
+                                  "value": "_merchantId"
+                                },
+                                "id": 248,
+                                "name": "Identifier",
+                                "src": "472:11:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 239,
+                                  "type": "bool",
+                                  "value": "_active"
+                                },
+                                "id": 249,
+                                "name": "Identifier",
+                                "src": "485:7:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 241,
+                                  "type": "string memory",
+                                  "value": "_ipfsHash"
+                                },
+                                "id": 250,
+                                "name": "Identifier",
+                                "src": "494:9:1"
+                              }
+                            ],
+                            "id": 251,
+                            "name": "FunctionCall",
+                            "src": "463:41:1"
+                          }
+                        ],
+                        "id": 252,
+                        "name": "FunctionCall",
+                        "src": "448:57:1"
+                      }
+                    ],
+                    "id": 253,
+                    "name": "ExpressionStatement",
+                    "src": "448:57:1"
+                  }
+                ],
+                "id": 254,
+                "name": "Block",
+                "src": "386:133:1"
+              }
+            ],
+            "id": 255,
+            "name": "FunctionDefinition",
+            "src": "303:216:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMerchantId",
+              "payable": false,
+              "scope": 292,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 256,
+                "name": "ParameterList",
+                "src": "548:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 267,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 257,
+                        "name": "ElementaryTypeName",
+                        "src": "576:6:1"
+                      }
+                    ],
+                    "id": 258,
+                    "name": "VariableDeclaration",
+                    "src": "576:6:1"
+                  }
+                ],
+                "id": 259,
+                "name": "ParameterList",
+                "src": "575:8:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 259
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "merchantId",
+                              "referencedDeclaration": 218,
+                              "type": "string storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct MerchantRegister.Merchant storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 226,
+                                      "type": "struct MerchantRegister.Merchant storage ref[] storage ref",
+                                      "value": "merchants"
+                                    },
+                                    "id": 260,
+                                    "name": "Identifier",
+                                    "src": "602:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 261,
+                                    "name": "Literal",
+                                    "src": "612:1:1"
+                                  }
+                                ],
+                                "id": 262,
+                                "name": "IndexAccess",
+                                "src": "602:12:1"
+                              }
+                            ],
+                            "id": 263,
+                            "name": "MemberAccess",
+                            "src": "602:23:1"
+                          }
+                        ],
+                        "id": 264,
+                        "name": "TupleExpression",
+                        "src": "601:25:1"
+                      }
+                    ],
+                    "id": 265,
+                    "name": "Return",
+                    "src": "594:32:1"
+                  }
+                ],
+                "id": 266,
+                "name": "Block",
+                "src": "584:49:1"
+              }
+            ],
+            "id": 267,
+            "name": "FunctionDefinition",
+            "src": "526:107:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMerchantActive",
+              "payable": false,
+              "scope": 292,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 268,
+                "name": "ParameterList",
+                "src": "665:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 279,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 269,
+                        "name": "ElementaryTypeName",
+                        "src": "693:4:1"
+                      }
+                    ],
+                    "id": 270,
+                    "name": "VariableDeclaration",
+                    "src": "693:4:1"
+                  }
+                ],
+                "id": 271,
+                "name": "ParameterList",
+                "src": "692:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 271
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "active",
+                              "referencedDeclaration": 220,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct MerchantRegister.Merchant storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 226,
+                                      "type": "struct MerchantRegister.Merchant storage ref[] storage ref",
+                                      "value": "merchants"
+                                    },
+                                    "id": 272,
+                                    "name": "Identifier",
+                                    "src": "717:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 273,
+                                    "name": "Literal",
+                                    "src": "727:1:1"
+                                  }
+                                ],
+                                "id": 274,
+                                "name": "IndexAccess",
+                                "src": "717:12:1"
+                              }
+                            ],
+                            "id": 275,
+                            "name": "MemberAccess",
+                            "src": "717:19:1"
+                          }
+                        ],
+                        "id": 276,
+                        "name": "TupleExpression",
+                        "src": "716:21:1"
+                      }
+                    ],
+                    "id": 277,
+                    "name": "Return",
+                    "src": "709:28:1"
+                  }
+                ],
+                "id": 278,
+                "name": "Block",
+                "src": "699:45:1"
+              }
+            ],
+            "id": 279,
+            "name": "FunctionDefinition",
+            "src": "639:105:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMerchantIpsfHash",
+              "payable": false,
+              "scope": 292,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 280,
+                "name": "ParameterList",
+                "src": "778:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 291,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 281,
+                        "name": "ElementaryTypeName",
+                        "src": "806:6:1"
+                      }
+                    ],
+                    "id": 282,
+                    "name": "VariableDeclaration",
+                    "src": "806:6:1"
+                  }
+                ],
+                "id": 283,
+                "name": "ParameterList",
+                "src": "805:8:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 283
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "ipfsHash",
+                              "referencedDeclaration": 222,
+                              "type": "string storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct MerchantRegister.Merchant storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 226,
+                                      "type": "struct MerchantRegister.Merchant storage ref[] storage ref",
+                                      "value": "merchants"
+                                    },
+                                    "id": 284,
+                                    "name": "Identifier",
+                                    "src": "832:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 285,
+                                    "name": "Literal",
+                                    "src": "842:1:1"
+                                  }
+                                ],
+                                "id": 286,
+                                "name": "IndexAccess",
+                                "src": "832:12:1"
+                              }
+                            ],
+                            "id": 287,
+                            "name": "MemberAccess",
+                            "src": "832:21:1"
+                          }
+                        ],
+                        "id": 288,
+                        "name": "TupleExpression",
+                        "src": "831:23:1"
+                      }
+                    ],
+                    "id": 289,
+                    "name": "Return",
+                    "src": "824:30:1"
+                  }
+                ],
+                "id": 290,
+                "name": "Block",
+                "src": "814:47:1"
+              }
+            ],
+            "id": 291,
+            "name": "FunctionDefinition",
+            "src": "750:111:1"
+          }
+        ],
+        "id": 292,
+        "name": "ContractDefinition",
+        "src": "26:837:1"
+      }
+    ],
+    "id": 293,
+    "name": "SourceUnit",
+    "src": "0:863:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x74e3fc764c2474f25369b9d021b7f92e8441a2dc"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-31T18:52:45.094Z"
+}

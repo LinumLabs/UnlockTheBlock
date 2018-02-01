@@ -1,0 +1,911 @@
+{
+  "contractName": "RefugeeRegister",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_refugeeId",
+          "type": "string"
+        },
+        {
+          "name": "_refugeePublicKey",
+          "type": "string"
+        },
+        {
+          "name": "_ipfsHash",
+          "type": "string"
+        }
+      ],
+      "name": "createRefugee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getRefugeeId",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "refugees",
+      "outputs": [
+        {
+          "name": "refugeeId",
+          "type": "string"
+        },
+        {
+          "name": "refugeePublicKey",
+          "type": "string"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "ipfsHash",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506107428061005e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806321b8ff9c1461005c57806333193c961461013f5780639a180f7e146101cd575b600080fd5b341561006757600080fd5b61013d600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103a3565b005b341561014a57600080fd5b610152610470565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610192578082015181840152602081019050610177565b50505050905090810190601f1680156101bf5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34156101d857600080fd5b6101ee6004808035906020019091905050610537565b60405180806020018060200185151515158152602001806020018481038452888181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102895780601f1061025e57610100808354040283529160200191610289565b820191906000526020600020905b81548152906001019060200180831161026c57829003601f168201915b505084810383528781815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561030c5780601f106102e15761010080835404028352916020019161030c565b820191906000526020600020905b8154815290600101906020018083116102ef57829003601f168201915b505084810382528581815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561038f5780601f106103645761010080835404028352916020019161038f565b820191906000526020600020905b81548152906001019060200180831161037257829003601f168201915b505097505050505050505060405180910390f35b600180548060010182816103b79190610580565b91600052602060002090600402016000608060405190810160405280878152602001868152602001600115158152602001858152509091909150600082015181600001908051906020019061040d9291906105b2565b50602082015181600101908051906020019061042a9291906105b2565b5060408201518160020160006101000a81548160ff02191690831515021790555060608201518160030190805190602001906104679291906105b2565b50505050505050565b610478610632565b6001600081548110151561048857fe5b90600052602060002090600402016000018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561052d5780601f106105025761010080835404028352916020019161052d565b820191906000526020600020905b81548152906001019060200180831161051057829003601f168201915b5050505050905090565b60018181548110151561054657fe5b9060005260206000209060040201600091509050806000019080600101908060020160009054906101000a900460ff169080600301905084565b8154818355818115116105ad576004028160040283600052602060002091820191016105ac9190610646565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105f357805160ff1916838001178555610621565b82800160010185558215610621579182015b82811115610620578251825591602001919060010190610605565b5b50905061062e91906106a9565b5090565b602060405190810160405280600081525090565b6106a691905b808211156106a2576000808201600061066591906106ce565b60018201600061067591906106ce565b6002820160006101000a81549060ff021916905560038201600061069991906106ce565b5060040161064c565b5090565b90565b6106cb91905b808211156106c75760008160009055506001016106af565b5090565b90565b50805460018160011615610100020316600290046000825580601f106106f45750610713565b601f01602090049060005260206000209081019061071291906106a9565b5b505600a165627a7a72305820e4f811521b6828896ffddf9acefc274c5944c01ea1405fa69d98dad936c327060029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806321b8ff9c1461005c57806333193c961461013f5780639a180f7e146101cd575b600080fd5b341561006757600080fd5b61013d600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103a3565b005b341561014a57600080fd5b610152610470565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610192578082015181840152602081019050610177565b50505050905090810190601f1680156101bf5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34156101d857600080fd5b6101ee6004808035906020019091905050610537565b60405180806020018060200185151515158152602001806020018481038452888181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102895780601f1061025e57610100808354040283529160200191610289565b820191906000526020600020905b81548152906001019060200180831161026c57829003601f168201915b505084810383528781815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561030c5780601f106102e15761010080835404028352916020019161030c565b820191906000526020600020905b8154815290600101906020018083116102ef57829003601f168201915b505084810382528581815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561038f5780601f106103645761010080835404028352916020019161038f565b820191906000526020600020905b81548152906001019060200180831161037257829003601f168201915b505097505050505050505060405180910390f35b600180548060010182816103b79190610580565b91600052602060002090600402016000608060405190810160405280878152602001868152602001600115158152602001858152509091909150600082015181600001908051906020019061040d9291906105b2565b50602082015181600101908051906020019061042a9291906105b2565b5060408201518160020160006101000a81548160ff02191690831515021790555060608201518160030190805190602001906104679291906105b2565b50505050505050565b610478610632565b6001600081548110151561048857fe5b90600052602060002090600402016000018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561052d5780601f106105025761010080835404028352916020019161052d565b820191906000526020600020905b81548152906001019060200180831161051057829003601f168201915b5050505050905090565b60018181548110151561054657fe5b9060005260206000209060040201600091509050806000019080600101908060020160009054906101000a900460ff169080600301905084565b8154818355818115116105ad576004028160040283600052602060002091820191016105ac9190610646565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105f357805160ff1916838001178555610621565b82800160010185558215610621579182015b82811115610620578251825591602001919060010190610605565b5b50905061062e91906106a9565b5090565b602060405190810160405280600081525090565b6106a691905b808211156106a2576000808201600061066591906106ce565b60018201600061067591906106ce565b6002820160006101000a81549060ff021916905560038201600061069991906106ce565b5060040161064c565b5090565b90565b6106cb91905b808211156106c75760008160009055506001016106af565b5090565b90565b50805460018160011615610100020316600290046000825580601f106106f45750610713565b601f01602090049060005260206000209081019061071291906106a9565b5b505600a165627a7a72305820e4f811521b6828896ffddf9acefc274c5944c01ea1405fa69d98dad936c327060029",
+  "sourceMap": "26:604:1:-;;;252:71;;;;;;;;306:10;296:7;;:20;;;;;;;;;;;;;;;;;;26:604;;;;;;",
+  "deployedSourceMap": "26:604:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;330:187;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;524:104;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;216:25:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;330:187;433:8;:70;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;447:55;;;;;;;;;455:10;447:55;;;;467:17;447:55;;;;486:4;447:55;;;;;;492:9;447:55;;;433:70;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;330:187;;;:::o;524:104::-;573:6;;:::i;:::-;599:8;608:1;599:11;;;;;;;;;;;;;;;;;;;;:21;;591:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;524:104;:::o;216:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;26:604::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract RefugeeRegister {\n\n    address creator;\n\n    struct Refugee {\n        string refugeeId;\n        string refugeePublicKey;\n\t\tbool active;        \n        string ipfsHash;\n    }\n\n\n    Refugee[] public refugees;\n    \n    function RefugeeRegister() public {\n        creator = msg.sender;\n    }\n\n\n    function createRefugee(string _refugeeId, string _refugeePublicKey, string _ipfsHash) public {\n        refugees.push(Refugee(_refugeeId, _refugeePublicKey, true, _ipfsHash));       \n    }\n\n\n    function getRefugeeId() public constant returns (string) {\n        return (refugees[0].refugeeId);\n    }\n}",
+  "sourcePath": "/mnt/d/unlock-the-block/DCentral/contracts/RefugeeRegister.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/mnt/d/unlock-the-block/DCentral/contracts/RefugeeRegister.sol",
+      "exportedSymbols": {
+        "RefugeeRegister": [
+          115
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 58,
+        "name": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            115
+          ],
+          "name": "RefugeeRegister",
+          "scope": 116
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "creator",
+              "scope": 115,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 59,
+                "name": "ElementaryTypeName",
+                "src": "58:7:1"
+              }
+            ],
+            "id": 60,
+            "name": "VariableDeclaration",
+            "src": "58:15:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "RefugeeRegister.Refugee",
+              "name": "Refugee",
+              "scope": 115,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "refugeeId",
+                  "scope": 69,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 61,
+                    "name": "ElementaryTypeName",
+                    "src": "105:6:1"
+                  }
+                ],
+                "id": 62,
+                "name": "VariableDeclaration",
+                "src": "105:16:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "refugeePublicKey",
+                  "scope": 69,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 63,
+                    "name": "ElementaryTypeName",
+                    "src": "131:6:1"
+                  }
+                ],
+                "id": 64,
+                "name": "VariableDeclaration",
+                "src": "131:23:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "active",
+                  "scope": 69,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 65,
+                    "name": "ElementaryTypeName",
+                    "src": "158:4:1"
+                  }
+                ],
+                "id": 66,
+                "name": "VariableDeclaration",
+                "src": "158:11:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "ipfsHash",
+                  "scope": 69,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 67,
+                    "name": "ElementaryTypeName",
+                    "src": "187:6:1"
+                  }
+                ],
+                "id": 68,
+                "name": "VariableDeclaration",
+                "src": "187:15:1"
+              }
+            ],
+            "id": 69,
+            "name": "StructDefinition",
+            "src": "80:129:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "refugees",
+              "scope": 115,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct RefugeeRegister.Refugee storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct RefugeeRegister.Refugee storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Refugee",
+                      "referencedDeclaration": 69,
+                      "type": "struct RefugeeRegister.Refugee storage pointer"
+                    },
+                    "id": 70,
+                    "name": "UserDefinedTypeName",
+                    "src": "216:7:1"
+                  }
+                ],
+                "id": 71,
+                "name": "ArrayTypeName",
+                "src": "216:9:1"
+              }
+            ],
+            "id": 72,
+            "name": "VariableDeclaration",
+            "src": "216:25:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "RefugeeRegister",
+              "payable": false,
+              "scope": 115,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 73,
+                "name": "ParameterList",
+                "src": "276:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 74,
+                "name": "ParameterList",
+                "src": "286:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 60,
+                              "type": "address",
+                              "value": "creator"
+                            },
+                            "id": 75,
+                            "name": "Identifier",
+                            "src": "296:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 127,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 76,
+                                "name": "Identifier",
+                                "src": "306:3:1"
+                              }
+                            ],
+                            "id": 77,
+                            "name": "MemberAccess",
+                            "src": "306:10:1"
+                          }
+                        ],
+                        "id": 78,
+                        "name": "Assignment",
+                        "src": "296:20:1"
+                      }
+                    ],
+                    "id": 79,
+                    "name": "ExpressionStatement",
+                    "src": "296:20:1"
+                  }
+                ],
+                "id": 80,
+                "name": "Block",
+                "src": "286:37:1"
+              }
+            ],
+            "id": 81,
+            "name": "FunctionDefinition",
+            "src": "252:71:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "createRefugee",
+              "payable": false,
+              "scope": 115,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_refugeeId",
+                      "scope": 102,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 82,
+                        "name": "ElementaryTypeName",
+                        "src": "353:6:1"
+                      }
+                    ],
+                    "id": 83,
+                    "name": "VariableDeclaration",
+                    "src": "353:17:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_refugeePublicKey",
+                      "scope": 102,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 84,
+                        "name": "ElementaryTypeName",
+                        "src": "372:6:1"
+                      }
+                    ],
+                    "id": 85,
+                    "name": "VariableDeclaration",
+                    "src": "372:24:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsHash",
+                      "scope": 102,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 86,
+                        "name": "ElementaryTypeName",
+                        "src": "398:6:1"
+                      }
+                    ],
+                    "id": 87,
+                    "name": "VariableDeclaration",
+                    "src": "398:16:1"
+                  }
+                ],
+                "id": 88,
+                "name": "ParameterList",
+                "src": "352:63:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 89,
+                "name": "ParameterList",
+                "src": "423:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Refugee_$69_memory",
+                                  "typeString": "struct RefugeeRegister.Refugee memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct RefugeeRegister.Refugee storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 72,
+                                  "type": "struct RefugeeRegister.Refugee storage ref[] storage ref",
+                                  "value": "refugees"
+                                },
+                                "id": 90,
+                                "name": "Identifier",
+                                "src": "433:8:1"
+                              }
+                            ],
+                            "id": 92,
+                            "name": "MemberAccess",
+                            "src": "433:13:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct RefugeeRegister.Refugee memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_bool",
+                                      "typeString": "bool"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 69,
+                                  "type": "type(struct RefugeeRegister.Refugee storage pointer)",
+                                  "value": "Refugee"
+                                },
+                                "id": 93,
+                                "name": "Identifier",
+                                "src": "447:7:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 83,
+                                  "type": "string memory",
+                                  "value": "_refugeeId"
+                                },
+                                "id": 94,
+                                "name": "Identifier",
+                                "src": "455:10:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 85,
+                                  "type": "string memory",
+                                  "value": "_refugeePublicKey"
+                                },
+                                "id": 95,
+                                "name": "Identifier",
+                                "src": "467:17:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 96,
+                                "name": "Literal",
+                                "src": "486:4:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 87,
+                                  "type": "string memory",
+                                  "value": "_ipfsHash"
+                                },
+                                "id": 97,
+                                "name": "Identifier",
+                                "src": "492:9:1"
+                              }
+                            ],
+                            "id": 98,
+                            "name": "FunctionCall",
+                            "src": "447:55:1"
+                          }
+                        ],
+                        "id": 99,
+                        "name": "FunctionCall",
+                        "src": "433:70:1"
+                      }
+                    ],
+                    "id": 100,
+                    "name": "ExpressionStatement",
+                    "src": "433:70:1"
+                  }
+                ],
+                "id": 101,
+                "name": "Block",
+                "src": "423:94:1"
+              }
+            ],
+            "id": 102,
+            "name": "FunctionDefinition",
+            "src": "330:187:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getRefugeeId",
+              "payable": false,
+              "scope": 115,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 103,
+                "name": "ParameterList",
+                "src": "545:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 114,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 104,
+                        "name": "ElementaryTypeName",
+                        "src": "573:6:1"
+                      }
+                    ],
+                    "id": 105,
+                    "name": "VariableDeclaration",
+                    "src": "573:6:1"
+                  }
+                ],
+                "id": 106,
+                "name": "ParameterList",
+                "src": "572:8:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 106
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "refugeeId",
+                              "referencedDeclaration": 62,
+                              "type": "string storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct RefugeeRegister.Refugee storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 72,
+                                      "type": "struct RefugeeRegister.Refugee storage ref[] storage ref",
+                                      "value": "refugees"
+                                    },
+                                    "id": 107,
+                                    "name": "Identifier",
+                                    "src": "599:8:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 108,
+                                    "name": "Literal",
+                                    "src": "608:1:1"
+                                  }
+                                ],
+                                "id": 109,
+                                "name": "IndexAccess",
+                                "src": "599:11:1"
+                              }
+                            ],
+                            "id": 110,
+                            "name": "MemberAccess",
+                            "src": "599:21:1"
+                          }
+                        ],
+                        "id": 111,
+                        "name": "TupleExpression",
+                        "src": "598:23:1"
+                      }
+                    ],
+                    "id": 112,
+                    "name": "Return",
+                    "src": "591:30:1"
+                  }
+                ],
+                "id": 113,
+                "name": "Block",
+                "src": "581:47:1"
+              }
+            ],
+            "id": 114,
+            "name": "FunctionDefinition",
+            "src": "524:104:1"
+          }
+        ],
+        "id": 115,
+        "name": "ContractDefinition",
+        "src": "26:604:1"
+      }
+    ],
+    "id": 116,
+    "name": "SourceUnit",
+    "src": "0:630:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "4447": {
+      "events": {},
+      "links": {},
+      "address": "0x345ca3e014aaf5dca488057592ee47305d9b3e10"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x345ca3e014aaf5dca488057592ee47305d9b3e10"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-01T05:32:06.410Z"
+}
