@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+        <h1>Coursetro Instructor</h1>
+
+        <h2 id="instructor"></h2>
+
+        <label for="name" class="col-lg-2 control-label">Instructor Name</label>
+        <input id="name" type="text">
+
+        <label for="name" class="col-lg-2 control-label">Instructor Age</label>
+        <input id="age" type="text">
+
+        <button id="button">Update Instructor</button>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+    //Hier onder is javascript kode wat web3js provider spesifiseer
+       if (typeof web3 !== 'undefined') {
+	       web3 = new Web3(web3,currentProvider);
+       } else {
+	       web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+       }
+
+       //nou moet ons default eth account spesifiseer:
+	web3.eth.defaultAccount = web3.eth.accounts[0]; //testrpc gee 10 accounts en ons kies om eerste een te gebruik
+
+	//nou moet ons die eth contract method gebruik om die contract op addres te init of maak deur ABI te gee as parameter
+	//$.getJSON('HouseholdContract.json', function(data)){
+	//	var Artifact = data;
+	//});
+	var HouseHoldContract = web3.eth.contract([
+	{
+		[ { constant: false,
+	    inputs: [],
+	    name: 'resetWaterUsage',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'function' },
+	  { constant: true,
+	    inputs: [ [Object], [Object] ],
+	    name: 'getBounty',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { constant: false,
+	    inputs: [ [Object] ],
+	    name: 'addWaterUsage',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'function' },
+	  { inputs: [],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'constructor' } ]
+
+]);//kan vanaf remix by compile die ABI string copy
+
+//contract_name.new().then(function(res) { sc = contract_name.at(res.address) }) //tik die lyntji in truffle console om die adres te kry dan sc.xxxxxx kan methods execute
+	//nou moet ons die kontrak adres spesifiseer
+	var Household = HouseHoldContract.at('0xe454a9b3e366a754f0b690e7ed66b91a5ba422f3'); //kan adres string copy by run in remix
+	console.log(Household);
+
+	// Household.addWaterUsage();//Yay!!!! uit freaken eindelik kry ek wat ek wil he
+	Household.getBounty(5000, 2).then(function(voucher) {
+		$("#instructor").html('Voucher is ' + result[0]);
+	});
+
+	$("#button").click(function() {
+		Household.addWaterUsage($("#age").val());
+
+		Household.getBounty(5000, 2).then(function(voucher) {
+			$("#instructor").html('Voucher is ' + result[0]);
+		});
+	});
+    </script>
+
+</body>
+</html>
