@@ -1,0 +1,46 @@
+﻿<nav class="navbar navbar-inverse topnav" id="myTopnav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#" style="margin: 0 auto;">
+                <span>
+                    <img src="/assets/logo.png" width="25px" /> </span>Truffle Butter</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li >
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="/bank">Bank</a>
+                </li>
+                <li>
+                    <a href="/gdo">GDO</a>
+                </li>
+                <li class="active">
+                    <a href="/register">NGO</a>
+                </li>
+                <li>
+                    <a href="/beneficiary">Beneficiary</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="register">
+                        <span class="glyphicon glyphicon-user"></span>  Manage Beneficiaries</a>
+                </li>
+                <li *ngIf="!loggedin">
+                    <a href="login" >
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
