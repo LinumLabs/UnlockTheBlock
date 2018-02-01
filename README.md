@@ -50,7 +50,7 @@ Whith student approval, potential employers can access a verified academic trans
 
 ## How to run it
 - start virtual environment ```. venv/bin/activate```
-- start a test node ```./playground/test2/starttestrpc.sh```
+- start a test node ```./starttestrpc.sh```
 - run the demo jupyter notebook in ```/app/registree```
 - navigate to ```/app/registree/```
 - start the webapp ```python manage.py runserver```
