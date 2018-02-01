@@ -1,0 +1,17 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<div class="row">
+    <h1>Get Student Transcript</h1>
+    <h3>Please insert the student address here:</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{get_transcript.as_p}}
+        <div>
+            <input type="hidden" name="type" value="get_transcript">
+            <input type="submit" value="Submit" class="btn"/>
+        </div>
+    </form>
+</div>
+{% endblock %}
