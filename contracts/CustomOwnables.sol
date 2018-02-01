@@ -16,21 +16,30 @@ contract CustomOwnables is Ownable {
         _;
     }
 
+    
     /**
     * @dev Throws if called by any account other than local government.
     * only local government can manage refugee details
     */
+    
+    /*
+    to be added in phase 2 for refugee registration permissions
     modifier onlyLocalGvt() {
         require(msg.sender == localGvt);
         _;
     }
+    
+      function setLocalGvtAddress(address _localGvtAddress) public onlyOwner {
+      localGvt = _localGvtAddress;
+    }
+    
+    */
 
-  function setBankAddress(address _bankAddress) public onlyOwner {
+  //allows the dapp administrator to set the address of the bank
+  function setBankAddress(address _bankAddress) public onlyOwner returns (bool) {
+    require (_bankAddress != 0x0);
     bank = _bankAddress;
-  }
-
-  function setLocalGvtAddress(address _localGvtAddress) public onlyOwner {
-    localGvt = _localGvtAddress;
+    return true;
   }
 
 }
