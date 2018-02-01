@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - ANXS.postgresql
+    - geerlingguy.nodejs
+    - geerlingguy.certbot
+    - geerlingguy.nginx

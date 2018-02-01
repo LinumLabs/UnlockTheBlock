@@ -1,0 +1,7 @@
+- name: Ensure system group exists
+  become: yes
+  group: name={{user}} state=present
+
+- name: Ensure system user exists
+  become: yes
+  user: name={{user}} group={{user}}

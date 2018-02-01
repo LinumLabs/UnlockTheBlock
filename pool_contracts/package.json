@@ -1,0 +1,27 @@
+{
+  "name": "patreth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "oraclize": "cd oraclize; node bridge -H localhost:7545 -a 1 --dev",
+    "test": "truffle test test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okwme/patreth_contracts.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okwme/patreth_contracts/issues"
+  },
+  "homepage": "https://github.com/okwme/patreth_contracts#readme",
+  "dependencies": {
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3-utils": "^1.0.0-beta.29"
+  }
+}

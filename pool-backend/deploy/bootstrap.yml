@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - apt-update
+    - bootstrap
+    - github
+    - user
