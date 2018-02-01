@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background: #332f35;
+  font-family: roboto;
+}
+
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  color: rgb(190, 184, 194);
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 10pt;
+  font-size:1.5vw;
+  padding: 10px 10px;
+  margin:0;
+}
+
+input[type=radio]:checked + label{
+  color: rgb(51, 48, 53);
+  background: rgb(255, 255, 255);
+}
+
+label {
+  width:32%;
+}
+.radio-group {
+  border: 2pt solid#01579b;
+  display: block;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  background:#01579b;
+  min-height:40px;
+}
+

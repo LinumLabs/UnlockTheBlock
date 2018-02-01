@@ -1,0 +1,42 @@
+[
+    {
+        "name":"J's Fish & Chips",
+        "loyalty":"Eat Nemo",
+        "unit":"Catches",
+        "symbol":"C",
+        "logo":"/assets/testImages/jay.jpg",
+        "address":"0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e"
+    },
+    {
+        "name":"Weirdly Colourful Pants",
+        "loyalty":"Bootlegger",
+        "unit":"Stitches",
+        "symbol":"STS",
+        "logo":"/assets/testImages/pants.jpg",
+        "address":"0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5"
+    },
+    {
+        "name":"Weave Life",
+        "loyalty":"Earn your strands",
+        "unit":"Strands",
+        "symbol":"SDS",
+        "logo":"/assets/testImages/hair.jpg",
+        "address":"0x0F4F2Ac550A1b4e2280d04c21cEa7EBD822934b5"
+    },
+    {
+        "name":"Mr Coffee Bean",
+        "loyalty":"Roast its",
+        "unit":"Roasties",
+        "symbol":"RI",
+        "logo":"/assets/testImages/coffee.png",
+        "address":"0x6330A553Fc93768F612722BB8c2eC78aC90B3bbc"
+    },
+    {
+        "name":"Bags for Hands",
+        "loyalty":"BFH Rewards",
+        "unit":"B Points",
+        "symbol":"BP",
+        "logo":"/assets/testImages/handbag.jpg",
+        "address":"0x5AEDA56215b167893e80B4fE645BA6d5Bab767DE"
+    }
+]

@@ -1,0 +1,25 @@
+<div class="viewContainer">
+    <h4 class="viewHeader">Add Customer to Loyalty Program</h4>
+    <form class="basicForm">
+      <mat-form-field [floatLabel]="auto">
+        <input matInput placeholder="Name" required [(ngModel)]="customer.name" name="name">
+      </mat-form-field>
+  
+      <mat-form-field [floatLabel]="auto">
+        <input matInput placeholder="Loyalty program" required [(ngModel)]="customer.surname" name="surname">
+      </mat-form-field>
+  
+      <mat-form-field [floatLabel]="auto">
+        <input matInput placeholder="Cell Number" required [(ngModel)]="customer.cell" name="cell"> 
+      </mat-form-field>
+  
+     <br>
+      <div class="formButtonContainer">
+          <button type="submit" class="btn btn-primary" >Submit</button>
+      </div>
+      
+    </form>
+  
+    
+  
+  </div>

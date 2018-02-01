@@ -1,0 +1,34 @@
+<div class="viewContainer">
+  <h4 class="viewHeader">Register Loyalty Program</h4>
+  <span id="status">{{status}}</span>
+  <form class="basicForm">
+    <mat-form-field [floatLabel]="auto">
+      <input matInput placeholder="Company" required [(ngModel)]="company.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="auto">
+      <input matInput placeholder="Loyalty program" required [(ngModel)]="company.loyalty" name="loyalty">
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="auto">
+      <input matInput placeholder="Reward unit" required [(ngModel)]="company.unit" name="unit"> 
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="auto">
+      <input matInput  placeholder="Symbol" maxlength="3" required [(ngModel)]="company.symbol" name="symbol">
+    </mat-form-field>
+
+    
+    <label for="logo" class="fileLabel">Logo*</label>
+    <br>
+    <input type="file" placeholder="Logo" required [(ngModel)]="company.logo" name="logo" required>
+    <br>
+    <div class="formButtonContainer">
+        <button type="submit" class="btn btn-primary" (click)="registerToken()">Submit</button>
+    </div>
+    
+  </form>
+
+  
+
+</div>

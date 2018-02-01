@@ -1,0 +1,29 @@
+<div class="viewContainer">
+    <div class="headerCardContainer row">
+      <div class="col-md-6">
+        <h4>Award points to customers</h4>
+        Loyalty Programs
+      </div>
+    </div>
+  
+    <form class="basicForm">
+       
+        <mat-form-field [floatLabel]="auto" *ngIf="custSelection>=2">
+            <mat-select placeholder="Customer">
+              <mat-option *ngFor="let customer of customers" [value]="customer.address">
+                {{ customer.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field [floatLabel]="auto">
+              <input matInput placeholder="Amount" required name="amount">
+              <span matPrefix>Points: &nbsp;</span>
+              <mat-error *ngIf="amount">No no</mat-error>
+            </mat-form-field>
+
+          <br>
+          <div class="formButtonContainer">
+            <button mat-button (click)="openSnackBar('Transaction', 'Successful!')" style="color:white">Submit</button>
+          </div>
+    </form>

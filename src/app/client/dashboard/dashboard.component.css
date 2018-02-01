@@ -1,0 +1,57 @@
+.box {
+    display: block;
+    width:70%;
+    text-align: center;
+  }
+  
+  .box>div {
+    margin: 10px;
+    padding:20px;
+    text-align: center; 
+  }
+
+.programCard {
+    max-width: 300px;
+    max-height: 450px;
+    float: left;
+    margin: 5px;
+}
+
+
+.programCard > .container {
+    background: #d4d1d1;
+    padding: 0;
+}
+
+.pointsBanner
+{
+    padding: 15px;
+}
+
+.cardButton {
+    width:100%;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.customerHead {
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    padding: 30px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
