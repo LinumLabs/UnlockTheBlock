@@ -1,0 +1,8 @@
+.vagrant
+id_rsa
+deploy/group_vars/all/secrets.yml
+*.retry
+.DS_Store
+.retry
+.env
+node_modules

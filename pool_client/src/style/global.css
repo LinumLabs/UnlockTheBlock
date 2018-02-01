@@ -1,0 +1,255 @@
+*{
+  box-sizing: border-box;
+  &, &:after, &:before{
+    margin:0;
+    padding:0;
+    border-width:inherit;
+  }
+}
+html{
+  font-size:12px;
+  line-height:normal;
+}
+#app{
+  font-family: "aktiv-grotesk", Times, sans-serif;
+}
+
+#app a{
+  &, &:link, &:visited{
+    color:inherit;
+    text-decoration: none;
+  }
+}
+
+.h00{
+  font-size:var(--h00);
+}
+.h0{
+  font-size:var(--h0);
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+.capitalize{
+  text-transform: capitalize;
+}
+
+.icon{
+  background-repeat:no-repeat;
+  background-position: center center;
+}
+.icon-back{
+  background-image:url(../assets/icons/Chevron-Back.svg);
+  width:1.08rem;
+  height:2.33rem;
+}
+.icon-pool{
+  background-image:url(../assets/art/pool-waves.svg);
+  background-size:100% 100%;
+}
+.icon-check{
+  background-image:url(../assets/icons/checkmark.svg);
+  width:42px;
+  height:32px;
+}
+.icon-loading-1{
+  background-image:url(../assets/icons/loading-arc.svg);
+  width:33px;
+  height:33px;
+  animation: spin 1s infinite linear;
+}
+
+.absolute-fill{
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+}
+
+.flex-item-fill{
+  flex:1 0 auto;
+}
+
+.tbl-row{
+  box-sizing:border-box;
+  min-height:var(--table-row-height);
+}
+.tbl-row__checkbox{
+  width:var(--table-row-height);
+}
+
+.opacity-qrtr{
+  opacity:.25;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.no-select, .btn, .pointer{
+  user-select:none;
+}
+
+img{
+  max-width:100%;
+}
+.bg-img{
+  background-repeat:no-repeat;
+}
+.bg-img-cover{
+  background-position: center;
+  background-size: cover;
+}
+.bg-dots{
+  background-image: url(../assets/bg-dots.svg);
+  background-size:6px 6px;
+  background-position:-4px 4px;
+}
+
+.close-icon{
+  top:4rem;
+  right:3rem;
+}
+
+button, .btn{
+  &:focus{
+    outline:none;
+    box-shadow:none;
+    border:none;
+  }
+}
+
+input{
+  border:none;
+  color:inherit;
+  appearance:none;
+  font-family: inherit;
+  font-size:inherit;
+  font-weight: inherit;
+  &::placeholder{
+    color:inherit;
+    opacity:.25;
+  }
+  &:focus{
+    outline:none;
+    &::placeholder{
+      color:transparent;
+    }
+  }
+}
+
+.input-number{
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button{
+    appearance:none;
+    margin:0
+  }
+}
+.input-number--2digits{
+  width:1.25em;
+}
+.input-number--3digits{
+  width:1.85em;
+}
+
+.radio-btn{
+  position: relative;
+  background:none;
+  border-style:solid;
+  border-color:inherit;
+  border-width:1px;
+  width:28px;
+  height:28px;
+  border-radius:10rem;
+  &:checked:after{
+    content:'';
+    display:block;
+    position: absolute;
+    top:-2px;
+    left:4px;
+    width:105%; height:105%;
+    background:blue;
+    border-radius:inherit;
+  }
+}
+
+select{
+  color:inherit;
+  appearance:none;
+  border:none;
+  &:focus{
+    outline:none;
+  }
+}
+
+textarea{
+  color:inherit;
+  appearance:none;
+  font-size:inherit;
+  font-weight:inherit;
+  width:100%;
+  resize:none;
+  &:focus{
+    outline:none;
+  }
+}
+
+.quickfade-enter-active,
+.quickfade-leave-active{
+  transition: opacity 300ms;
+}
+.quickfade-enter,
+.quickfade-leave-to{
+  opacity:0;
+}
+
+@keyframes spin{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* Slider */
+.pool-slider .vue-slider .vue-slider-dot {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAABdElEQ…enpgBQwHxrkiu16SZtU3eG2oqnww5WC1/3oxnfjNFJyw3vC/6grFUpX2dVAAAAAElFTkSuQmCC) no-repeat;
+    background-size: contain;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.vue-slider-component {
+  padding: 0 !important;
+  border: 1px solid blue !important;
+  transform: translateX(6px) translateY(-8px) !important;
+  width: calc(100% + 2px) !important;
+
+  &.no-pop {
+    width: calc(100% + 1px) !important;
+    transform: translateX(0) translateY(0) !important;
+  }
+
+  .vue-slider {
+    border-radius: 0 !important;
+    background: #FCFFA3 !important;
+    height: 70px !important;
+  }
+  .vue-slider-dot {
+    background-image: url(../assets/slider-knob.svg) !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    z-index: 3 !important;
+    height: 75px !important;
+    width: 18px !important;
+  }
+  .vue-slider-process {
+    border-radius: 0 !important;
+    background: #FCFFA3 !important;
+    background-image: url(../assets/bg-dots.svg) !important;
+    background-size:6px 6px !important;
+    background-position:-4px 4px !important;
+  }
+}

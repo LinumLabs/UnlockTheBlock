@@ -1,0 +1,103 @@
+@custom-media --breakpoint-xs (max-width: 40em);
+@custom-media --breakpoint-sm (min-width: 40em);
+@custom-media --breakpoint-sm-only (max-width: 52em);
+@custom-media --breakpoint-sm-md (min-width: 30em) and (max-width: 52em);
+@custom-media --breakpoint-md (min-width: 52em);
+@custom-media --breakpoint-md-lg (min-width: 52em) and (max-width: 64em);
+@custom-media --breakpoint-lg (min-width: 64em);
+
+:root {
+  --custom-font: 'aktiv-grotesk', sans-serif;
+  /*--body-font: -apple-system, system-ui, "San Francisco", BlinkMacSystemFont, "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;*/
+  --body-font: "aktiv-grotesk", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
+  --base-font-size: 16px;
+  --bold-font-weight: bold;
+  --medium-font-weight: 500;
+
+  /* colors */
+  --aqua:  rgb(168, 229, 254);
+  --blue:  blue;
+  --navy:  #001F3F;
+  --teal:  rgba(25,255,198,1);
+  --green: #2ECC40;
+  --olive: #3D9970;
+  --lime:  #01FF70;
+
+  --yellow:  rgba(252,255,163,1); /* #FFDC00; */
+  --orange:  rgb(252, 63, 29);
+  --red:     red; /* #FF4136; */
+  --fuchsia: #F012BE;
+  --purple:  #B10DC9;
+  --maroon:  #85144B;
+
+  --white:  #FFFFFF;
+  --silver: rgb(251, 251, 251);
+  --light-gray: rgb(233, 233, 233);
+  --gray:   #AAAAAA;
+  --black:  #111111;
+  --dark-gray: rgb(110, 110, 110);
+
+  --darken-1: rgba(0, 0, 0, .0625);
+  --darken-2: rgba(0, 0, 0, .125);
+  --darken-3: rgba(0, 0, 0, .25);
+  --darken-4: rgba(0, 0, 0, .5);
+
+  --lighten-1: rgba(255, 255, 255, .0625);
+  --lighten-2: rgba(255, 255, 255, .125);
+  --lighten-3: rgba(255, 255, 255, .25);
+  --lighten-4: rgba(255, 255, 255, .5);
+
+  --border-radius: 3px;
+  --border-radius-1: 5px;
+  --border-radius-2: 2em;
+
+  /* animations */
+  --anim-timing: .08s;
+  --anim-timing-medium: .2s;
+  --anim-timing-long: .4s;
+  --anim-timing-very-long: .8s;
+  --anim-ease: ease-in-out;
+
+  /* spacing */
+  --space-1: .5rem; /* 6px */
+  --space-2: .833rem; /* 10px */
+  --space-3: 1.25rem;
+  --space-4: 2rem;
+
+  --h00: 3.5em;
+  --h0: 2em;
+  --h1: 1.5em;
+  --h2: 1em;
+  --h3: 1em;
+  --h4: 1em;
+  --h5: 1em;
+  --h6: 1em;
+
+  --line-height-1: 1;
+  --line-height-2: 1.125;
+  --line-height-3: 1.33;
+  --line-height-4: 1.5;
+  --caps-letter-spacing: .2em;
+  --bold-font-weight: bold;
+
+  /* buttons */
+  --border-width: 1px;
+  --button-font-family: inherit;
+  --button-font-size: inherit;
+  --button-font-weight: var(--medium-font-weight);
+  --button-line-height: 3.5em; /* 1.125em; */
+  --button-padding-y: .5em;
+  --button-padding-x: 1em;
+
+  --button-small-padding-y: .25em;
+  --button-small-padding-x: .5em;
+  --button-big-padding-y: 1em;
+  --button-big-padding-x: 3.25em;
+  --button-narrow-padding-x: .5em;
+
+  --button-color: #fff;
+  --button-background-color: var(--orange);
+
+  /* table ui */
+  --table-row-height: 5rem;
+}

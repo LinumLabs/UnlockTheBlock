@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="75px" viewBox="0 0 18 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Slider-Knob</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.606323242 7 5.65891335 0.00119357639 13.1972656 0.00119357639 17.8308105 7 17.8308105 75 17.0456055 75 13.03125 67.9933594 6.13842773 67.9933594 2.03447266 75 1 75"></polygon>
+    </defs>
+    <g id="Explore-Pools---Subscribe---Amount" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-64.000000, -490.000000)">
+        <g id="Slider-Knob" transform="translate(64.000000, 490.000000)">
+            <g>
+                <polygon id="Path-11" fill="#C1C1FF" points="1.87548828 75 6.20491536 67.5107422 13.1152543 67.5107422 17.5611979 75"></polygon>
+                <g id="Rectangle-3">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path stroke="#0000FF" stroke-width="1" d="M1.1072598,7.16032519 L1.4971137,74.5 L1.74787952,74.5 L5.8518346,67.4933594 L13.3210319,67.4933594 L17.3308105,74.4920116 L17.3308105,7.15051369 L12.9286423,0.501193576 L5.9146313,0.501193576 L1.1072598,7.16032519 Z M17.3353874,74.5 L17.4794451,74.7514377 L17.3308105,74.6652945 L17.3308105,74.5 L17.3353874,74.5 Z"></path>
+                </g>
+                <path d="M13.0556641,0.770996094 L13.0556641,67.3322699" id="Path-13" stroke="#0000FF"></path>
+                <path d="M6,1 L6,67.604041" id="Path-12" stroke="#0000FF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
