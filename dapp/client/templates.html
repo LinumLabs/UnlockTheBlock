@@ -1,0 +1,616 @@
+<template name="findElection">
+    <div class="text-center">
+        <h2 id="find" class="title">Find Election</h2>
+        <h5 class="description">
+            Search for an election currently on the Ethereum blockchain. To do this, you require the address of the
+            election Smart Contract. This will
+            be publicised by the election administrator. Ensure that you are on the same Ethereum network to which the
+            election contract was published.
+        </h5>
+    </div>
+
+    <div class="input-group">
+        <input type="text" class="form-control" id="electionAddress" placeholder="Election Address" name="address">
+        <span class="input-group-btn">
+    <button type="button" class="searchForElection btn btn-info btn-default hvr-growfast"><i
+            class="fa fa-search"></i></button>
+   </span>
+    </div>
+
+    <h5 class="description">
+        <h4>
+            <!--note that tripple spacebar syntax is used to feed in colour styling from JS-->
+            Election Status: {{{electionStatus}}}
+        </h4>
+
+        {{#if resultsFetched}}
+            {{#if electionOver}}
+                The winner of the election was <strong> {{currentLeader}} </strong> with
+                <strong>{{currentLeaderVotes}}</strong> votes
+                <div class="text-center">
+                    <button type="button" class="btn btn-info btn-lg button-box hvr-growfast saveElection">Save election
+                        results
+                    </button>
+                </div>
+
+            {{/if}}
+            <hr class="wow fadeIn">
+            <h4>Election Information
+            </h4>
+
+            <table class="table">
+                <tr>
+                    <td>Number of voters</td>
+                    <td>{{TemplateVar.get "numberOfVotes"}}</td>
+                </tr>
+                <tr>
+                    <td>Number of Candidates</td>
+                    <td>{{TemplateVar.get "numberOfCandidates"}}</td>
+                </tr>
+                <tr>
+                    <td>Starting Block</td>
+                    <td>{{TemplateVar.get "startingBlock"}}</td>
+                </tr>
+                <tr>
+                    <td>Ending Block</td>
+                    <td>{{TemplateVar.get "endingBlock"}}</td>
+                </tr>
+                <tr>
+                    <td>Is Partial</td>
+                    <td>{{TemplateVar.get "isPartial"}}</td>
+                </tr>
+            </table>
+            <hr class="wow fadeIn">
+            <h4>
+                Candidates
+            </h4>
+            {{#if preElection}}
+                <table class="table small">
+                    <tbody>
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Votes</th>
+                    </tr>
+                    {{#each objectToPairs candidateMap}}
+                        <tr>
+                            <td>{{key}}</td>
+                            <td>{{value}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+
+                <table class="table small">
+                    <tbody>
+                    <tr>
+                        <th>Position</th>
+                        <th>Candidate</th>
+                        <th>Votes</th>
+                    </tr>
+                    {{#each objectToPairs finalResults}}
+                        <tr>
+                            <td>{{math.sum key 1}}</td>
+                            <td>{{value.[0]}}</td>
+                            <td>{{value.[1]}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+            <hr class="wow fadeIn">
+            <h4>
+                Voters
+            </h4>
+            <table class="table small">
+                <tbody>
+                <tr>
+                    <th>Voter Address</th>
+                    <th>Credits</th>
+                </tr>
+                {{#each objectToPairs voterMap}}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+    </h5>
+</template>
+
+<template name="WalletBallance">
+    <div class="text-center">
+        <h2 id="about" class="title">Your Account Info</h2>
+        <h5 class="description">Your Current web3 client. This is related to your Metamask, Geth or Status client.</h5>
+    </div>
+    <h5 class="description">
+        <ul>
+            <li>Your Address: {{Address}}</li>
+            <li>Your Ether Ballance: {{walletBallance}}</li>
+            <li>Connected Network: {{connectedNetwork}}</li>
+            <li>Current BlockNumber: {{blockNumber}}</li>
+        </ul>
+    </h5>
+
+    <br>
+    <h5 class="description">
+        {{#if currentUser}}
+            you are logged! You can view your saved DB entries now.
+        {{else}}
+            you are not logged in. You dont have access to any saved DB entries. If you'd like, you can register to save
+            voter rolls and election candidates. You will be able to do all other core functions, including viewing
+            sample
+            candidate and voter roll lists from the database.
+        {{/if}}
+    </h5>
+</template>
+
+<template name="vote">
+    <div class="text-center">
+        <h2 id="vote" class="title">Vote in a current election</h2>
+        <h5 class="description">
+        </h5>
+    </div>
+    <h5 class="description">
+        {{#if resultsFetched}}
+            {{#if electionOver}}
+                <h4 class="text-center">This election has finished. You cant vote in it.</h4>
+                <br>
+            {{else}}
+                {{#if registeredForElection}}
+                    <div class="text-center">
+                        <h4 class="text-center">You are registered to vote for this election</h4>
+                        <br>
+                        <strong>You have {{numberOfVotingCredits}} voting credits on your account</strong>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-md-12">
+                            Select candidate
+                            <select class="candidates form-control" id="voteCandidates" name="candidate"></select>
+                        </div>
+                        <div class="col-xl-6 col-md-12">
+                            Select number of credits
+                            <div class="input-group">
+                                <input class="form-control" type="number" id="voteCredits" name="credits" min="0"
+                                       max="{{numberOfVotingCredits}}">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button type="button" class="voteInElection btn btn-primary btn-default btn-lg hvr-growfast">
+                            Vote
+                        </button>
+                    </div>
+                {{else}}
+                    <h4 class="text-center"> You are not registered to vote for this election.</h4>
+                {{/if}}
+            {{/if}}
+        {{else}}
+            <h4 class="text-center"> Search for an election above. If you are elegable to vote, you can do so
+                here. </h4>
+        {{/if}}
+    </h5>
+</template>
+
+<template name="createElection">
+    <div class="text-center">
+        <h2 id="create" class="title">Create new Election
+        </h2>
+    </div>
+    <h5 class="description">
+        <div class="text-center">
+            Create a new election and post it to the Ethereum blockchain. You will need to specify if you want a
+            partial(or non-partial) election, the starting and ending block numbers, a list of candidates and the voter
+            roll for the election.
+        </div>
+        <h4>
+            Key Election Information
+            <button class="pull-right btn btn-just-icon btn-border btn-tumblr" data-toggle="modal"
+                    data-target="#keyElectionModal">
+                <i class="fa fa-question" aria-hidden="true"></i>
+            </button>
+        </h4>
+
+        The current block number is: <strong>{{blockNumber}}</strong>
+
+        <div class="row">
+            <div class="col-6">
+                Starting Block <input type="number" id="startingBlock" class="form-control" name="startingBlock"
+                                      value="{{blockNumber}}"
+                                      min="{{blockNumber}}">
+            </div>
+            <div class="col-6 pull-right">
+                Ending Block <input type="number" id="endingBlock" class="form-control" name="EndingBlock"
+                                    value="{{blockNumber}}"
+                                    min="{{blockNumber}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" id="partial" name="partial" type="checkbox" value="">
+                        Partial election
+                        <span class="form-check-sign"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <hr class="wow fadeIn">
+        {{> upload}}
+        <hr class="wow fadeIn">
+        <h4>
+            Candidates
+            <button class="pull-right btn btn-just-icon btn-border btn-tumblr" data-toggle="modal"
+                    data-target="#candidatesModal">
+                <i class="fa fa-question" aria-hidden="true"></i>
+            </button>
+        </h4>
+
+        <div class="row">
+            <div class="col">
+                {{#if currentUser}}
+                    You are logged in so you can load your saved past candidates. You can also view sample candidate
+                    lists.
+                {{else}}
+                    You are not logged in so you cant access previous election candidates. You can however view the
+                    sample candidate lists.
+                {{/if}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                Select from template
+                <div class="input-group">
+                    <select class="form-control" name="candidatesTemplates" id="candidatesTemplates">
+                        <option selected="selected">Candidate Template</option>
+                        {{#each template in savedCandidates}}
+                            <option value="{{template._id}}">{{template.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                Add new candidates
+                <div class="input-group">
+                    <input type="text" class="form-control" name="candidateName" placeholder="candidate Name"
+                           id="candidateName">
+                    <span class="input-group-btn">
+                <button type="button" class="btn btn-info btn-default hvr-growfast addCandidate"
+                        value="Add Candidate"><i class="fa fa-plus"></i></button>
+                </span>
+                </div>
+            </div>
+        </div>
+
+        {{#if newCandidates}}
+            <table class="table small">
+                <tr>
+                    <th>Candidate</th>
+                    <th></th>
+                </tr>
+                {{#each candidate in newCandidates}}
+                    <tr>
+                        <td>{{candidate}}</td>
+                        <td>
+                            <button type="button" id="{{candidate}}"
+                                    class="btn btn-info btn-outline-danger btn-just-icon removeCandidate fa-pull-right pull-right">
+                                <i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if}}
+
+        {{#if currentUser}}
+            Save your candidate list to the database. This enables you to re-use your candidates in future elections.
+            Add new candidates
+            <div class="input-group">
+                <input type="text" class="form-control" id="savedCandidatesName" name="savedCandidatesName"
+                       placeholder="Candidate List name">
+                <span class="input-group-btn">
+                <button type="button" id="saveCandidateList"
+                        class="btn btn-info btn-default hvr-growfast saveCandidateList"><i
+                        class="fa fa-save"></i></button>
+                </span>
+            </div>
+        {{else}}
+            Register or log in to save your list of candidates.
+        {{/if}}
+
+        <hr class="wow fadeIn">
+        <h4>
+            Voter Roll
+            <button class="pull-right btn btn-just-icon btn-border btn-tumblr" data-toggle="modal"
+                    data-target="#voterRollModal">
+                <i class="fa fa-question" aria-hidden="true"></i>
+            </button>
+        </h4>
+
+        {{#if currentUser}}
+            You are logged in so you can view your past voter rolls as well as sample rolls.
+        {{else}}
+            You are not logged in so you don't have access to any past rolls. You can view the sample voter
+            rolls.
+        {{/if}}
+
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="input-group">
+                    <select class="form-control" name="voterRollTemplates" id="voterRollTemplates">
+                        <option selected="selected">Voter Roll Template</option>
+                        {{#each template in voteRollTemplates}}
+                            <option value="{{template._id}}">{{template.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        Add new voter
+        <div class="input-group">
+
+            <input type="text" name="voterName" placeholder="Voter Name" class="form-control voterName">
+            <input type="text" name="voterAddress" placeholder="Voter Address" class="form-control voterAddress">
+            <input type="number" name="voterWeight" placeholder="voter Weight" class="form-control voterWeight"
+                   min="0"
+                   max="999999">
+            <span class="input-group-btn">
+        <button type="button" id="{{voters}}" class="addVoter btn btn-info btn-default hvr-growfast ">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+            </span>
+        </div>
+
+        <table class="table small">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Weight</th>
+                <th></th>
+            </tr>
+            {{#each objectToPairs rollMap}}
+                <tr>
+                    <td>{{value.[1]}}</td>
+                    <td>{{key}}</td>
+                    <td>{{value.[0]}}</td>
+                    <td>
+                        <button type="button" name="{{key}}" id="{{key}}"
+                                class=" fa-pull-right pull-right btn btn-info btn-outline-danger btn-just-icon removeVoter">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+        <br>
+        Save your voter roll to a database. This enables you to re-use your roll
+        in later elections.
+
+        <div class="input-group">
+            <input type="text" class="form-control" id="saveVoterRollName" name="saveVoterRollName"
+                   placeholder="Voter Roll name">
+            <span class="input-group-btn">
+                <button type="button"
+                        id="saveVoterRoll"
+                        class="btn btn-info btn-default hvr-growfast saveVoterRol"><i
+                        class="fa fa-save"></i></button>
+                </span>
+        </div>
+
+
+        <hr class="wow fadeIn">
+        <div class="text-center">
+            <button type="button" class=" btn btn-lg hvr-growfast btn-primary createElection">Create Election</button>
+        </div>
+    </h5>
+</template>
+
+
+<!--modals-->
+<template name="modal">
+    <div class="modal fade" id="mvpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="my-auto">Minimum Viable Product Demo</h2>
+                </div>
+                <div class="modal-body"> Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of
+                    the
+                    Semantics, a large language ocean. A small river named Duden flows by their place and supplies it
+                    with
+                    the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly
+                    into
+                    your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost
+                    unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to
+                    leave for the far World of Grammar.
+                </div>
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <button type="button" class="btn btn-primary btn-link" data-dismiss="modal">Demo Version
+                        </button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-side">
+                        <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Testnet Version
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="keyElectionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="my-auto">Key Election Information </h2>
+                </div>
+                <div class="modal-body"> Specify the starting and ending block numbers as well as the type of election
+                    (partial or non-partial). These block numbers will define when the election starts and ends. You can
+                    view the current block number below. To start the election immediately, set the start block number
+                    to be less than the current block number.
+                    <br>
+                    <br>
+                    To view current average block times, see: <a target="_blank"
+                                                                 href="https://etherscan.io/chart/blocktime">EtherScan.io</a>
+                </div>
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <a href="https://github.com/when-moon/blockPoll#instructions" target="_blank"
+                           class="btn btn-primary btn-link">
+                            View relevant<br> documentation on Github
+                        </a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-side">
+                        <button type="button" class="btn btn-primary btn-link" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="uploadCSVModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="my-auto">Upload a CSV Information </h2>
+                </div>
+                <div class="modal-body">
+                    To simplify the election creation process, you can upload a CSV of candidates or voters. This
+                    enables one to integrate the blockPoll system with existing databases.
+                    <br>
+                    <br>
+                    <strong>Sample CSV for Candidates</strong><br>
+                    candidates<br>
+                    Albert Einstein<br>
+                    Anna K. Behrensmeyer<br>
+                    Blaise Pascal<br>
+                    <br>
+                    Note: this is a vector and as such there are no commas separating names, only new lines
+                    <br>
+                    <br>
+                    <strong>Sample CSV for voters</strong><br>
+                    address,weight,name<br>
+                    0x627306090abaB3A6e1400e9345bC60c78a8BEf57,100,user1<br>
+                    0xf17f52151EbEF6C7334FAD080c5704D77216b732,102,user2<br>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <a href="https://github.com/when-moon/blockPoll#instructions" target="_blank"
+                           class="btn btn-primary btn-link">
+                            View relevant<br> documentation on Github
+                        </a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-side">
+                        <button type="button" class="btn btn-primary btn-link" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="candidatesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="my-auto">Candidates Information </h2>
+                </div>
+                <div class="modal-body">
+                    The selected candidates are potential vote recipients. One has the ability to:
+                    <ul>
+                        <li>
+                            Manually enter the candidates
+                        </li>
+                        <li>
+                            Select candidates from a list of predefined templates
+                        </li>
+                        <li>
+                            Select candidates from past elections, saved into the database. Note that you must be logged
+                            into your account to access this candidate list
+                        </li>
+                        <li>
+                            Upload a CSV of candidates
+                        </li>
+                    </ul>
+                    Additionally, one is able to save the entered list of candidates to the database under their account
+                    to be reused in future elections.
+
+                </div>
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <a href="https://github.com/when-moon/blockPoll#instructions" target="_blank"
+                           class="btn btn-primary btn-link">
+                            View relevant<br> documentation on Github
+                        </a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-side">
+                        <button type="button" class="btn btn-primary btn-link" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="voterRollModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="my-auto">Voter Roll Information </h2>
+                </div>
+                <div class="modal-body">
+                    The selected voter roll are the potential voters. One has the ability to:
+                    <ul>
+                        <li>
+                            Manually enter the voters
+                        </li>
+                        <li>
+                            Select voters from a list of predefined templates
+                        </li>
+                        <li>
+                            Select voters from past elections, saved into the database. Note that you must be logged
+                            into your account to access this voter list
+                        </li>
+                        <li>
+                            Upload a CSV of voter
+                        </li>
+                    </ul>
+                    Additionally, one is able to save the entered list of voters to the database under their account to
+                    be reused in future elections.
+
+                </div>
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <a href="https://github.com/when-moon/blockPoll#instructions" target="_blank"
+                           class="btn btn-primary btn-link">
+                            View relevant<br> documentation on Github
+                        </a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-side">
+                        <button type="button" class="btn btn-primary btn-link" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
